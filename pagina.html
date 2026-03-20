@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Acceso al Portal</title>
+
+<style>
+/* GENERAL */
+*{margin:0;padding:0;box-sizing:border-box;font-family:Segoe UI, sans-serif;}
+body{
+  background: linear-gradient(135deg, #f8f9ff 0%, #e8ecff 100%);
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  color:#333;
+  position:relative;
+  overflow:hidden;
+}
+body::before {
+  content: '';
+  position: fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(255,255,255,0.4) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255,255,255,0.3) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(255,255,255,0.4) 0%, transparent 50%);
+  z-index:-1;
+}
+
+.help{
+position:absolute;
+top:20px;
+right:40px;
+background: rgba(255, 255, 255, 0.9);
+color:#333;
+border:1px solid rgba(0,0,0,0.1);
+padding:8px 18px;
+border-radius:12px;
+cursor:pointer;
+backdrop-filter: blur(10px);
+box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+transition: all 0.3s ease;
+z-index:10;
+}
+
+.help:hover{
+transform: translateY(-2px);
+box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+}
+
+/* MAIN CONTAINER */
+.main-container{
+display:flex;
+gap:40px;
+align-items:center;
+justify-content:center;
+max-width:1100px;
+width:90%;
+padding:20px;
+}
+
+/* CARRUSEL */
+.carousel-container{
+width:450px;
+height:500px;
+position:relative;
+perspective:1000px;
+}
+.carousel{
+width:100%;
+height:100%;
+position:relative;
+transform-style: preserve-3d;
+transition: transform 0.7s;
+}
+.carousel img{
+width:85%;
+height:85%;
+object-fit:cover;
+position:absolute;
+border-radius:20px;
+box-shadow:0 20px 60px rgba(0,0,0,0.2);
+backface-visibility:hidden;
+top:50%;
+left:50%;
+transform:translate(-50%, -50%);
+}
+.carousel img:nth-child(1){ transform: translate(-50%, -50%) rotateY(0deg) translateZ(300px); }
+.carousel img:nth-child(2){ transform: translate(-50%, -50%) rotateY(120deg) translateZ(300px); }
+.carousel img:nth-child(3){ transform: translate(-50%, -50%) rotateY(240deg) translateZ(300px); }
+
+.carousel-nav{
+position:absolute;
+bottom:20px;
+left:50%;
+transform:translateX(-50%);
+display:flex;
+gap:10px;
+}
+
+.nav-dot{
+width:12px;
+height:12px;
+border-radius:50%;
+background:rgba(255,255,255,0.6);
+cursor:pointer;
+transition: all 0.3s ease;
+}
+
+.nav-dot.active{
+background:#333;
+transform: scale(1.2);
+box-shadow:0 0 10px rgba(0,0,0,0.3);
+}
+
+.carousel-prev, .carousel-next{
+position:absolute;
+top:50%;
+transform:translateY(-50%);
+background: rgba(255,255,255,0.9);
+border:none;
+color:#333;
+font-size:24px;
+padding:10px;
+border-radius:50%;
+cursor:pointer;
+backdrop-filter: blur(10px);
+transition: all 0.3s ease;
+width:50px;
+height:50px;
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+.carousel-prev{ left:10px; }
+.carousel-next{ right:10px; }
+
+.carousel-prev:hover, .carousel-next:hover{
+background: rgba(255,255,255,1);
+transform: translateY(-50%) scale(1.1);
+box-shadow:0 5px 20px rgba(0,0,0,0.2);
+}
+
+
+.login-container{
+width:420px;/*Sirve para ancho de objetos*/
+background: rgba(255, 255, 255, 0.25);
+backdrop-filter: blur(20px);
+border-radius:24px;/*Sirve para darle forma a objetos*/
+padding:58px;/*Sirve para largo de  objetos*/
+box-shadow: 
+  0 25px 45px rgba(0,0,0,0.1),
+  0 0 0 1px rgba(255,255,255,0.3),
+  inset 0 1px 0 rgba(255,255,255,0.8);
+border:1px solid rgba(255,255,255,0.4);
+position:relative;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+margin-left: 60px;/*Mover un objeto a la izquierda o derecha*/
+transition: all 0.3s ease;
+}
+
+.login-container:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 
+    0 35px 70px rgba(0,0,0,0.15),
+    0 0 0 1px rgba(255,255,255,0.4),
+    inset 0 1px 0 rgba(255,255,255,0.9);
+}
+
+h1{
+font-size:36px;
+margin-bottom:10px;
+color:#333;
+text-shadow:0 1px 2px rgba(0,0,0,0.1);
+}
+
+label{
+font-weight:600;
+font-size:14px;
+color:#333;
+text-align:left;
+width:100%;
+margin-bottom:5px;
+}
+
+input, select{
+width:100%;
+padding:14px;
+margin-bottom:20px;
+border:1px solid rgba(0,0,0,0.1);
+border-radius:12px;
+background: rgba(255,255,255,0.8);
+backdrop-filter: blur(10px);
+color:#333;
+font-size:16px;
+transition: all 0.3s ease;
+}
+
+button.signin{
+width:100%;
+padding:16px;
+background: rgba(255,255,255,0.95);
+color:#333;
+border:1px solid rgba(0,0,0,0.1);
+border-radius:12px;
+font-size:16px;
+font-weight:600;
+cursor:pointer;
+backdrop-filter: blur(10px);
+box-shadow:0 10px 30px rgba(0,0,0,0.1);
+transition: all 0.3s ease;
+margin-bottom:20px;
+}
+
+/* FOOTER */
+.footer-portal{
+position:absolute;
+bottom:20px;
+left:50%;
+transform:translateX(-50%);
+font-size:12px;
+color:#888;
+text-align:center;
+z-index:10;
+width:100%;
+max-width:420px;
+}
+
+/* PLATAFORMA */
+#portal{
+display:none;
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100vh;
+background: linear-gradient(135deg,#eef2ff,#dbeafe);
+}
+
+header{
+padding:15px 30px;
+background: rgba(255,255,255,0.3);
+backdrop-filter: blur(10px);
+font-weight:bold;
+}
+
+.portal-container{
+display:flex;
+height:calc(100vh - 60px);
+}
+
+.sidebar{
+width:230px;
+background: rgba(255,255,255,0.35);
+padding:25px;
+}
+
+.menu-item{
+padding:12px;
+border-radius:10px;
+cursor:pointer;
+margin-bottom:8px;
+}
+
+.menu-item:hover{
+background: rgba(255,255,255,0.6);
+}
+
+.content{
+flex:1;
+padding:30px;
+}
+
+.card{
+background: rgba(255,255,255,0.35);
+padding:20px;
+border-radius:20px;
+margin-bottom:20px;
+}
+
+/* RESPONSIVE */
+@media(max-width:1000px){
+  .main-container{flex-direction:column;gap:30px;}
+  .carousel-container{width:350px;height:400px;}
+  .login-container{width:380px;}
+}
+@media(max-width:768px){
+  .carousel-container{width:300px;height:350px;}
+  .carousel img{width:80%;height:80%;}
+  .login-container{width:90%;max-width:340px;padding:30px;}
+}
+</style>
+</head>
+<body>
+
+<button class="help">Ayuda</button>
+
+<div class="main-container" id="login">
+  <div class="carousel-container">
+    <div class="carousel" id="carousel">
+      <img src="https://master2000.net/recursos/fotos/78/43887prado2.jpg">
+      <img src="https://master2000.net/recursos/fotos/78/43885prado1.jpg">
+      <img src="https://static.wixstatic.com/media/633354_6a68db0902f342289a70e6383f1b5647~mv2.jpg">
+    </div>
+   <class="carousel-prev" onclick="prevSlide">
+    <class="carousel-next" onclick="nextSlide">
+  </div>
+
+  <div class="login-container">
+    <h1>Acceso al Portal</h1>
+    <label>Correo Electrónico</label>
+    <input type="email" placeholder="nombre@universidad.edu">
+    <label>Contraseña</label>
+    <input type="password" placeholder="••••••••">
+    <label>Tipo de Usuario</label>
+    <select id="rol">
+      <option value="inicio">Seleccionar</option>
+      <option value="egresados">Egresado</option>
+      <option value="estudiantes">Estudiante</option>
+      <option value="admin">Administrador</option>
+    </select>
+    <button class="signin" onclick="entrarPortal()">Iniciar Sesión</button>
+  </div>
+</div>
+
+<div class="footer-portal">
+  <a>Política de Privacidad</a>
+  <a>Términos de Servicio</a>
+</div>
+
+<!-- PLATAFORMA -->
+<div id="portal">
+  <header>Portal Universitario</header>
+  <div class="portal-container">
+    <div class="sidebar">
+      <div class="menu-item" onclick="showPage('inicio')">Inicio</div>
+      <div class="menu-item" onclick="showPage('egresados')">Egresados</div>
+      <div class="menu-item" onclick="showPage('estudiantes')">Estudiantes</div>
+      <div class="menu-item" onclick="showPage('admin')">Administradores</div>
+      <div class="menu-item" onclick="logout()">Cerrar sesión</div>
+    </div>
+    <div class="content">
+      <div id="inicio"><div class="card">Bienvenido al portal universitario.</div></div>
+      <div id="egresados" style="display:none"><div class="card">Sección de egresados</div></div>
+      <div id="estudiantes" style="display:none"><div class="card">Sección de estudiantes</div></div>
+      <div id="admin" style="display:none"><div class="card">Panel de administradores</div></div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* CARRUSEL */
+let currentSlide = 0;
+const slides = document.querySelectorAll('.carousel img');
+const totalSlides = slides.length;
+function updateCarousel(){document.getElementById('carousel').style.transform=`rotateY(${currentSlide*-120}deg)`}
+function nextSlide(){currentSlide=(currentSlide+1)%totalSlides; updateCarousel()}
+function prevSlide(){currentSlide=(currentSlide-1+totalSlides)%totalSlides; updateCarousel()}
+setInterval(nextSlide,4000);
+
+/* LOGIN */
+function entrarPortal(){
+  const rol = document.getElementById("rol").value;
+  if(rol==="inicio"){alert("Seleccione un tipo de usuario"); return;}
+  document.getElementById("login").style.display="none";
+  document.getElementById("portal").style.display="block";
+  showPage(rol);
+}
+
+/* CAMBIAR SECCION */
+function showPage(page){
+  const pages = ["inicio","egresados","estudiantes","admin"];
+  pages.forEach(p => document.getElementById(p).style.display="none");
+  document.getElementById(page).style.display="block";
+}
+
+/* LOGOUT */
+function logout(){location.reload();}
+</script>
+
+</body>
+</html>
