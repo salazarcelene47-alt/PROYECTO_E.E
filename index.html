@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pagina E.E </title>
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<!-- NAVEGACIÓN SUPERIOR GLOBAL -->
+<header class="header-nav" id="header-nav">
+  <div class="nav-container">
+    <div class="logo">Pagina </div>
+    <button class="help" onclick="mostrarAyuda()">Ayuda</button>
+  </div>
+</header>
+
+<!-- SECCIÓN LOGIN Y CARRUSEL -->
+<div class="main-container" id="login-section">
+
+  <div class="connector"></div>
+
+  <div class="carousel-container">
+    <div class="carousel" id="carousel">
+      <img src="https://master2000.net/recursos/fotos/78/43887prado2.jpg">
+      <img src="https://master2000.net/recursos/fotos/78/43885prado1.jpg">
+      <img src="https://static.wixstatic.com/media/633354_6a68db0902f342289a70e6383f1b5647~mv2.jpg">
+    </div>
+
+    <button class="carousel-prev" onclick="prevSlide()">❮</button>
+    <button class="carousel-next" onclick="nextSlide()">❯</button>
+  </div>
+
+  <div class="login-container">
+    <h1>Acceso a la página</h1>
+
+    <label>Correo Electrónico</label>
+    <input type="email" id="email" placeholder="nombre@.edu.co">
+
+    <label>Contraseña</label>
+    <input type="password" id="password" placeholder="••••••••">
+
+    <label>Tipo de Usuario</label>
+    <select id="rol">
+      <option value="inicio">Seleccionar</option>
+      <option value="egresados">Egresado</option>
+      <option value="estudiantes">Estudiante</option>
+      <option value="admin">Administrador</option>
+    </select>
+
+    <button class="signin" onclick="entrarPortal()">Iniciar Sesión</button>
+  </div>
+</div>
+
+<!-- PORTAL PRINCIPAL (DESPUÉS DEL LOGIN) -->
+<div id="portal" style="display:none;">
+
+  <!-- CONTENIDO PARA EGRESADOS -->
+  <section id="content-egresados" class="portal-content-section" style="display:none;">
+    <h2>Egresados</h2>
+    <div class="dashboard-row">
+      <div class="card">
+        <div class="card-number">142</div>
+        <div class="card-label">Respuestas dadas</div>
+      </div>
+      <div class="card">
+        <div class="card-number">4.9 </div>
+        <div class="card-label">Rating promedio</div>
+      </div>
+      <div class="card">
+        <div class="card-number">4</div>
+        <div class="card-label">Pendientes</div>
+      </div>
+    </div>
+
+    <div class="dashboard-grid">
+      <div class="card">
+        <h3> Última pregunta</h3>
+        <p>"¿Cómo entrar a La UDA?"</p>
+        <p class="timestamp">De: Juan Pérez</p>
+        <button class="btn" onclick="alert('✉️ Respondiendo pregunta...')">Responder</button>
+      </div>
+      <div class="card">
+        <h3> Actividad reciente</h3>
+        <p> 3 nuevas preguntas hoy</p>
+        <p> 2 respuestas dadas</p>
+        <p> 1 comentario recibido</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTENIDO PARA ESTUDIANTES -->
+  <section id="content-estudiantes" class="portal-content-section" style="display:none;">
+    <h2> Estudiantes del grado 10° y 11°</h2>
+    <div class="dashboard-grid">
+      <div>
+        <div class="card">
+          <h3> Crear publicación</h3>
+          <input id="postInput" placeholder="¿Qué pregunta tienes?">
+          <button class="btn" onclick="publicarPost()"> Publicar</button>
+        </div>
+
+        <div class="card">
+          <h3> Mis publicaciones</h3>
+          <div id="postsList">
+            <p style="color: #aaa;">Sin publicaciones aún...</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3> Tendencias</h3>
+        <ul style="list-style: none;">
+          <li> Preguntas más respondidas</li>
+          <li> Egresados más activos</li>
+          <li> Temas en tendencia</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTENIDO PARA ADMIN -->
+  <section id="content-admin" class="portal-content-section" style="display:none;">
+    <h2>Panel de Administración</h2>
+    <div class="dashboard-row">
+      <div class="card">
+        <div class="card-number">45</div>
+        <div class="card-label">Mensajes pendientes</div>
+      </div>
+      <div class="card">
+        <div class="card-number">12</div>
+        <div class="card-label">Reportes activos</div>
+      </div>
+      <div class="card">
+        <div class="card-number">2h</div>
+        <div class="card-label">Tiempo promedio</div>
+      </div>
+    </div>
+
+    <div class="dashboard-grid">
+      <div class="card">
+        <h3> Contenido reportado</h3>
+        <div style="background: rgba(255,0,0,0.1); padding: 10px; border-radius: 10px; margin: 10px 0;">
+          <p><strong>Reporte #001:</strong> Comentario inapropiado</p>
+          <p style="font-size: 12px; color: #aaa;">De: Usuario123 | Hace 2 horas</p>
+        </div>
+        <button class="btn" onclick="alert(' Contenido eliminado')"> Eliminar</button>
+        <button class="btn" onclick="alert(' Contenido revisado')">✓ Rechazar reporte</button>
+      </div>
+      <div class="card">
+        <h3> Actividad de moderación</h3>
+        <ul style="list-style: none;">
+          <li> 23 contenidos revisados hoy</li>
+          <li> 5 eliminados</li>
+          <li> 18 pendientes</li>
+          <li> 3 usuarios advertidos</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSTITUCIONES ASOCIADAS -->
+  <section class="instituciones-section">
+    <h2>Instituciones Asociadas</h2>
+    <div class="logos-container">
+      <div class="logo-item">
+        <div class="logo-icon"></div>
+        <h3>Universidad A</h3>
+        <p>Excelencia académica desde 1995</p>
+      </div>
+      <div class="logo-item">
+        <div class="logo-icon"></div>
+        <h3>Instituto B</h3>
+        <p>Formación integral de profesionales</p>
+      </div>
+      <div class="logo-item">
+        <div class="logo-icon"></div>
+        <h3>Centro C</h3>
+        <p>Innovación en educación superior</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOTÓN CERRAR SESIÓN Y VOLVER -->
+  <div class="portal-actions">
+    <button class="btn-action" onclick="logout()"> Cerrar Sesión</button>
+    <button class="btn-action" onclick="irAlInicio()"> Ir al Inicio</button>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
