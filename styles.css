@@ -1,3 +1,4 @@
+ HEAD
 /* RESET Y ESTILOS GENERALES */
 *{margin:0;padding:0;box-sizing:border-box;font-family:Segoe UI, sans-serif;}
 
@@ -439,3 +440,39 @@ input:focus, select:focus {
     font-size: 60px;
   }
 }
+
+.nav-horizontal {
+    display: flex;
+    justify-content: space-around;
+    background-color: #f8f9fa;
+    padding: 10px;
+}
+
+.dynamic-content {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #dee2e6;
+    background-color: #ffffff;
+}
+
+.team-profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+}
+
+.footer {
+    background-color: #343a40;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
+}
+  
+
+
+.gradient {
+    background: linear-gradient(to right, #00c6ff, #0072ff);
+}
+
+
