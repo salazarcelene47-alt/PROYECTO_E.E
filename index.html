@@ -3,13 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pagina E.E </title>
+<title>Pagina E.E SADEP</title>
+<link rel="icon" type="image/png" href="sadep-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
-<!-- NAVEGACIÓN SUPERIOR GLOBAL -->
+<!-- HEADER -->
 <header class="header-nav" id="header-nav">
   <div class="nav-container">
     <div class="logo">Pagina E.E</div>
@@ -17,7 +21,7 @@
   </div>
 </header>
 
-<!-- SECCIÓN LOGIN Y CARRUSEL -->
+<!-- LOGIN -->
 <div class="main-container" id="login-section">
 
   <div class="connector"></div>
@@ -28,19 +32,18 @@
       <img src="https://master2000.net/recursos/fotos/78/43885prado1.jpg">
       <img src="https://static.wixstatic.com/media/633354_6a68db0902f342289a70e6383f1b5647~mv2.jpg">
     </div>
-
-    <button class="carousel-prev" onclick="prevSlide()">❮</button>
-    <button class="carousel-next" onclick="nextSlide()">❯</button>
   </div>
 
   <div class="login-container">
     <h1>Acceso a la página</h1>
 
     <label>Correo Electrónico</label>
-    <input type="email" id="email" placeholder="nombre@.edu.co">
+    <input type="email" id="email" placeholder="nombre@gmail.com">
+    <div id="errorEmail" class="error-message"></div>
 
     <label>Contraseña</label>
-    <input type="password" id="password" placeholder="••••••••">
+    <input type="password" id="password" placeholder="********">
+    <div id="errorPassword" class="error-message"></div>
 
     <label>Tipo de Usuario</label>
     <select id="rol">
@@ -50,147 +53,122 @@
       <option value="admin">Administrador</option>
     </select>
 
-    <button class="signin" onclick="entrarPortal()">Iniciar Sesión</button>
+    <button class="signin" onclick="validarYEntrar(event)">Iniciar Sesión</button>
   </div>
 </div>
 
-<!-- PORTAL PRINCIPAL (DESPUÉS DEL LOGIN) -->
+<!-- PORTAL -->
 <div id="portal" style="display:none;">
 
-  <!-- CONTENIDO PARA EGRESADOS -->
-  <section id="content-egresados" class="portal-content-section" style="display:none;">
-    <h2>Egresados</h2>
-    <div class="dashboard-row">
-      <div class="card">
-        <div class="card-number">142</div>
-        <div class="card-label">Respuestas dadas</div>
-      </div>
-      <div class="card">
-        <div class="card-number">4.9 </div>
-        <div class="card-label">Rating promedio</div>
-      </div>
-      <div class="card">
-        <div class="card-number">4</div>
-        <div class="card-label">Pendientes</div>
-      </div>
-    </div>
+  <!-- VISTA PRINCIPAL (rol + comunidad + instituciones) -->
+  <div id="vista-portal-principal">
 
-    <div class="dashboard-grid">
-      <div class="card">
-        <h3> Última pregunta</h3>
-        <p>"¿Cómo entrar a La UDA?"</p>
-        <p class="timestamp">De: Juan Pérez</p>
-        <button class="btn" onclick="alert('✉️ Respondiendo pregunta...')">Responder</button>
-      </div>
-      <div class="card">
-        <h3> Actividad reciente</h3>
-        <p> 3 nuevas preguntas hoy</p>
-        <p> 2 respuestas dadas</p>
-        <p> 1 comentario recibido</p>
-      </div>
-    </div>
-  </section>
+    <section id="content-egresados" class="portal-content-section" style="display:none;">
+      <h2>Egresados</h2>
+      <div id="muro-egresados" class="muro-container"></div>
+    </section>
 
-  <!-- CONTENIDO PARA ESTUDIANTES -->
-  <section id="content-estudiantes" class="portal-content-section" style="display:none;">
-    <h2> Estudiantes del grado 10° y 11°</h2>
-    <div class="dashboard-grid">
-      <div>
-        <div class="card">
-          <h3> Crear publicación</h3>
-          <input id="postInput" placeholder="¿Qué pregunta tienes?">
-          <button class="btn" onclick="publicarPost()"> Publicar</button>
-        </div>
+    <section id="content-estudiantes" class="portal-content-section" style="display:none;">
+      <h2>Estudiantes del grado 10° y 11°</h2>
+      <div id="muro-estudiantes" class="muro-container"></div>
+    </section>
 
-        <div class="card">
-          <h3> Mis publicaciones</h3>
-          <div id="postsList">
-            <p style="color: #aaa;">Sin publicaciones aún...</p>
+    <section id="content-admin" class="portal-content-section" style="display:none;">
+      <h2>Panel de Administración</h2>
+      <div id="muro-admin" class="muro-container"></div>
+    </section>
+
+    <footer class="portal-footer">
+      <div class="footer-card">
+        <div class="footer-overlay">
+          <span class="footer-tag">E.E SADEP</span>
+          <h3 class="footer-title">Comunidad Académica</h3>
+          <p class="footer-sub">Conectando estudiantes, egresados y administradores en un solo espacio para compartir, preguntar y crecer juntos.</p>
+          <div class="footer-meta">
+            <span>Medellín · Colombia</span>
+            <span class="footer-dot">·</span>
+            <span>Promoción 2026</span>
           </div>
         </div>
       </div>
+    </footer>
 
-      <div class="card">
-        <h3> Tendencias</h3>
-        <ul style="list-style: none;">
-          <li> Preguntas más respondidas</li>
-          <li> Egresados más activos</li>
-          <li> Temas en tendencia</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTENIDO PARA ADMIN -->
-  <section id="content-admin" class="portal-content-section" style="display:none;">
-    <h2>Panel de Administración</h2>
-    <div class="dashboard-row">
-      <div class="card">
-        <div class="card-number">45</div>
-        <div class="card-label">Mensajes pendientes</div>
-      </div>
-      <div class="card">
-        <div class="card-number">12</div>
-        <div class="card-label">Reportes activos</div>
-      </div>
-      <div class="card">
-        <div class="card-number">2h</div>
-        <div class="card-label">Tiempo promedio</div>
-      </div>
-    </div>
-
-    <div class="dashboard-grid">
-      <div class="card">
-        <h3> Contenido reportado</h3>
-        <div style="background: rgba(255,0,0,0.1); padding: 10px; border-radius: 10px; margin: 10px 0;">
-          <p><strong>Reporte #001:</strong> Comentario inapropiado</p>
-          <p style="font-size: 12px; color: #aaa;">De: Usuario123 | Hace 2 horas</p>
+    <section class="instituciones-section instituciones-compact">
+      <h2>Instituciones Asociadas</h2>
+      <div class="logos-container">
+        <div class="logo-item">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/2/25/PascualBravo.svg" width="70">
+          <h3>Universidad A</h3>
+          <p>Excelencia académica desde 1995</p>
         </div>
-        <button class="btn" onclick="alert(' Contenido eliminado')"> Eliminar</button>
-        <button class="btn" onclick="alert(' Contenido revisado')">✓ Rechazar reporte</button>
+        <div class="logo-item">
+          <img src="sadep-logo.png" style="width:80px;">
+          <h3>Instituto B</h3>
+          <p>Formación integral de profesionales</p>
+        </div>
+        <div class="logo-item">
+          <img src="kk.png" style="width:60px;">
+          <h3>Centro C</h3>
+          <p>Innovación en educación superior</p>
+        </div>
       </div>
-      <div class="card">
-        <h3> Actividad de moderación</h3>
-        <ul style="list-style: none;">
-          <li> 23 contenidos revisados hoy</li>
-          <li> 5 eliminados</li>
-          <li> 18 pendientes</li>
-          <li> 3 usuarios advertidos</li>
-        </ul>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- INSTITUCIONES ASOCIADAS -->
-  <section class="instituciones-section">
-    <h2>Instituciones Asociadas</h2>
-    <div class="logos-container">
-      <div class="logo-item">
-        <div class="logo-icon"></div>
-        <h3>Universidad A</h3>
-        <p>Excelencia académica desde 1995</p>
-      </div>
-      <div class="logo-item">
-        <div class="logo-icon"></div>
-        <h3>Instituto B</h3>
-        <p>Formación integral de profesionales</p>
-      </div>
-      <div class="logo-item">
-        <div class="logo-icon"></div>
-        <h3>Centro C</h3>
-        <p>Innovación en educación superior</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- BOTÓN CERRAR SESIÓN Y VOLVER -->
-  <div class="portal-actions">
-    <button class="btn-action" onclick="logout()"> Cerrar Sesión</button>
-    <button class="btn-action" onclick="irAlInicio()"> Ir al Inicio</button>
   </div>
+
+  <!-- VISTA: PERFIL -->
+  <section id="vista-perfil" class="vista-secundaria" style="display:none;">
+    <button class="btn-volver" onclick="volverAlPortal()">← Volver</button>
+    <div class="perfil-card">
+      <h2>Mi Perfil</h2>
+      <p class="perfil-sub">Personaliza tu nombre y tu icono. Se mostrarán en cada comentario que publiques.</p>
+
+      <div class="perfil-avatar-grande" id="perfilAvatarGrande">--</div>
+
+      <label class="perfil-label">Nombre para mostrar</label>
+      <input type="text" id="perfilNombre" placeholder="¿Cómo quieres que te vean?" maxlength="40">
+
+      <label class="perfil-label">Elige tu icono</label>
+      <div class="icon-picker" id="iconPicker"></div>
+
+      <div class="perfil-info">
+        <div><span>Correo:</span> <strong id="perfilCorreo">—</strong></div>
+        <div><span>Rol:</span> <strong id="perfilRol">—</strong></div>
+      </div>
+
+      <button class="btn-publicar btn-guardar-perfil" onclick="guardarPerfil()">Guardar cambios</button>
+    </div>
+  </section>
+
+  <!-- VISTA: CONÓCENOS (vacía por ahora) -->
+  <section id="vista-conocenos" class="vista-secundaria" style="display:none;">
+    <button class="btn-volver" onclick="volverAlPortal()">← Volver</button>
+    <div class="conocenos-card">
+      <span class="footer-tag">E.E SADEP</span>
+      <h2>Conócenos</h2>
+      <p class="conocenos-sub">Próximamente conocerás más sobre nuestra historia, nuestros valores y nuestro equipo.</p>
+    </div>
+  </section>
+
+  <!-- BARRA INFERIOR DE NAVEGACIÓN POR ICONOS -->
+  <nav class="footer-nav-bar">
+    <button class="footer-nav-item" onclick="irAInicio()" title="Cerrar sesión y volver al login">
+      <span class="fnav-icon">🏠</span>
+      <span class="fnav-label">Inicio</span>
+    </button>
+    <button class="footer-nav-item" onclick="mostrarPerfil()" title="Mi perfil">
+      <span class="fnav-icon">👤</span>
+      <span class="fnav-label">Perfil</span>
+    </button>
+    <button class="footer-nav-item" onclick="mostrarConocenos()" title="Conócenos">
+      <span class="fnav-icon">ℹ️</span>
+      <span class="fnav-label">Conócenos</span>
+    </button>
+  </nav>
 
 </div>
 
 <script src="script.js"></script>
+
 </body>
 </html>
