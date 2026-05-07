@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pagina E.E SADEP</title>
-<link rel="icon" type="image/png" href="favicon.jpeg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -15,16 +14,63 @@
 <header class="header-nav" id="header-nav">
   <div class="nav-container">
     <div class="logo">Pagina E.E</div>
-    <button class="help" onclick="mostrarAyuda()">Ayuda</button>
+    <div class="nav-actions">
+      <button class="help" onclick="abrirRegistro()">Registro</button>
+      <button class="help" onclick="mostrarAyuda()">Ayuda</button>
+    </div>
   </div>
 </header>
+
+<!-- Modal de Registro -->
+<div id="modal-registro" class="modal-overlay" style="display:none;" onclick="cerrarRegistroSiAfuera(event)">
+  <div class="modal-contenido">
+    <button class="modal-cerrar" onclick="cerrarRegistro()">✕</button>
+    <h2 class="modal-titulo">Solicitud de Registro</h2>
+    <p class="modal-sub">Completa el formulario. Un administrador revisará y aceptará tu solicitud.</p>
+
+    <div id="reg-exito" class="reg-exito" style="display:none;"></div>
+    <div id="reg-error-msg" class="reg-error-msg" style="display:none;"></div>
+
+    <form id="form-registro" onsubmit="enviarRegistro(event)" autocomplete="off">
+      <label class="form-label">Nombre completo *</label>
+      <input type="text" id="reg-nombre" placeholder="Tu nombre completo" maxlength="100" required>
+
+      <label class="form-label">Correo electrónico *</label>
+      <input type="email" id="reg-correo" placeholder="nombre@gmail.com" required>
+
+      <label class="form-label">Contraseña *</label>
+      <input type="password" id="reg-password" placeholder="Mínimo 7 caracteres con al menos una letra" required>
+
+      <label class="form-label">Confirmar contraseña *</label>
+      <input type="password" id="reg-password2" placeholder="Repite tu contraseña" required>
+
+      <label class="form-label">Número de teléfono <span class="opt">(opcional)</span></label>
+      <input type="tel" id="reg-telefono" placeholder="Ej: 3001234567">
+
+      <label class="form-label">Año de graduación <span class="opt">(opcional)</span></label>
+      <input type="text" id="reg-graduacion" placeholder="Ej: 2024">
+
+      <label class="form-label">Motivo de ingreso / Tipo de usuario <span class="opt">(opcional)</span></label>
+      <select id="reg-tipo">
+        <option value="">Seleccionar...</option>
+        <option value="Egresado">Egresado</option>
+        <option value="Estudiante activo">Estudiante activo</option>
+        <option value="Docente">Docente</option>
+        <option value="Familiar de egresado">Familiar de egresado</option>
+        <option value="Otro">Otro</option>
+      </select>
+
+      <button type="submit" class="btn-registro-enviar" id="btn-reg-enviar">Enviar solicitud</button>
+    </form>
+  </div>
+</div>
 
 <div class="main-container" id="login-section">
   <div class="carousel-container">
     <div class="carousel" id="carousel">
-      <img src="https://master2000.net/recursos/fotos/78/43887prado2.jpg">
-      <img src="https://master2000.net/recursos/fotos/78/43885prado1.jpg">
-      <img src="https://static.wixstatic.com/media/633354_6a68db0902f342289a70e6383f1b5647~mv2.jpg">
+      <img src="https://master2000.net/recursos/fotos/78/43887prado2.jpg" alt="SADEP">
+      <img src="https://master2000.net/recursos/fotos/78/43885prado1.jpg" alt="SADEP">
+      <img src="https://static.wixstatic.com/media/633354_6a68db0902f342289a70e6383f1b5647~mv2.jpg" alt="SADEP">
     </div>
   </div>
   <div class="login-container">
@@ -65,6 +111,16 @@
     <section id="content-admin" class="portal-content-section" style="display:none;">
       <h2>Panel de Administración</h2>
       <div id="muro-admin" class="muro-container"></div>
+
+      <div class="admin-registros-section">
+        <div class="admin-registros-header">
+          <h3>Solicitudes de Registro</h3>
+          <button class="btn-refrescar" onclick="cargarRegistros()">↻ Actualizar</button>
+        </div>
+        <div id="lista-registros" class="lista-registros">
+          <div class="reg-cargando">Cargando solicitudes...</div>
+        </div>
+      </div>
     </section>
 
     <section class="comunidad-instituciones">
@@ -82,17 +138,17 @@
           <h4 class="ci-instituciones-title">Instituciones Asociadas</h4>
           <div class="logos-container">
             <div class="logo-item">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/2/25/PascualBravo.svg" width="70">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/2/25/PascualBravo.svg" width="70" alt="Universidad A">
               <h3>Universidad A</h3>
               <p>Excelencia académica desde 1995</p>
             </div>
             <div class="logo-item">
-              <img src="sadep-logo.png" style="width:80px;">
+              <img src="sadep-logo.png" style="width:80px;" alt="Instituto B">
               <h3>Instituto B</h3>
               <p>Formación integral de profesionales</p>
             </div>
             <div class="logo-item">
-              <img src="kk.png" style="width:60px;">
+              <img src="kk.png" style="width:60px;" alt="Centro C">
               <h3>Centro C</h3>
               <p>Innovación en educación superior</p>
             </div>
