@@ -4,16 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pagina E.E SADEP</title>
-<link rel="icon" type="image/png" href="sadep-logo.png">
+<link rel="icon" type="image/png" href="favicon.jpeg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
 
-<!-- HEADER -->
 <header class="header-nav" id="header-nav">
   <div class="nav-container">
     <div class="logo">Pagina E.E</div>
@@ -21,11 +19,7 @@
   </div>
 </header>
 
-<!-- LOGIN -->
 <div class="main-container" id="login-section">
-
-  <div class="connector"></div>
-
   <div class="carousel-container">
     <div class="carousel" id="carousel">
       <img src="https://master2000.net/recursos/fotos/78/43887prado2.jpg">
@@ -33,18 +27,14 @@
       <img src="https://static.wixstatic.com/media/633354_6a68db0902f342289a70e6383f1b5647~mv2.jpg">
     </div>
   </div>
-
   <div class="login-container">
     <h1>Acceso a la página</h1>
-
     <label>Correo Electrónico</label>
     <input type="email" id="email" placeholder="nombre@gmail.com">
     <div id="errorEmail" class="error-message"></div>
-
     <label>Contraseña</label>
     <input type="password" id="password" placeholder="********">
     <div id="errorPassword" class="error-message"></div>
-
     <label>Tipo de Usuario</label>
     <select id="rol">
       <option value="inicio">Seleccionar</option>
@@ -52,124 +42,105 @@
       <option value="estudiantes">Estudiante</option>
       <option value="admin">Administrador</option>
     </select>
-
     <button class="signin" onclick="validarYEntrar(event)">Iniciar Sesión</button>
   </div>
 </div>
 
-<!-- PORTAL -->
 <div id="portal" style="display:none;">
+  <nav class="footer-nav-bar">
+    <button class="footer-nav-item" onclick="irAInicio()"><span class="fnav-icon">🏠</span><span class="fnav-label">Inicio</span></button>
+    <button class="footer-nav-item" onclick="mostrarPerfil()"><span class="fnav-icon">👤</span><span class="fnav-label">Perfil</span></button>
+    <button class="footer-nav-item" onclick="mostrarConocenos()"><span class="fnav-icon">ℹ️</span><span class="fnav-label">Conócenos</span></button>
+  </nav>
 
-  <!-- VISTA PRINCIPAL (rol + comunidad + instituciones) -->
   <div id="vista-portal-principal">
-
     <section id="content-egresados" class="portal-content-section" style="display:none;">
       <h2>Egresados</h2>
       <div id="muro-egresados" class="muro-container"></div>
     </section>
-
     <section id="content-estudiantes" class="portal-content-section" style="display:none;">
       <h2>Estudiantes del grado 10° y 11°</h2>
       <div id="muro-estudiantes" class="muro-container"></div>
     </section>
-
     <section id="content-admin" class="portal-content-section" style="display:none;">
       <h2>Panel de Administración</h2>
       <div id="muro-admin" class="muro-container"></div>
     </section>
 
-    <footer class="portal-footer">
-      <div class="footer-card">
-        <div class="footer-overlay">
+    <section class="comunidad-instituciones">
+      <div class="comunidad-instituciones-card">
+        <div class="ci-header">
           <span class="footer-tag">E.E SADEP</span>
           <h3 class="footer-title">Comunidad Académica</h3>
           <p class="footer-sub">Conectando estudiantes, egresados y administradores en un solo espacio para compartir, preguntar y crecer juntos.</p>
           <div class="footer-meta">
-            <span>Medellín · Colombia</span>
-            <span class="footer-dot">·</span>
-            <span>Promoción 2026</span>
+            <span>Medellín · Colombia</span><span class="footer-dot">·</span><span>Promoción 2026</span>
+          </div>
+        </div>
+        <div class="ci-divider"></div>
+        <div class="ci-instituciones">
+          <h4 class="ci-instituciones-title">Instituciones Asociadas</h4>
+          <div class="logos-container">
+            <div class="logo-item">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/2/25/PascualBravo.svg" width="70">
+              <h3>Universidad A</h3>
+              <p>Excelencia académica desde 1995</p>
+            </div>
+            <div class="logo-item">
+              <img src="sadep-logo.png" style="width:80px;">
+              <h3>Instituto B</h3>
+              <p>Formación integral de profesionales</p>
+            </div>
+            <div class="logo-item">
+              <img src="kk.png" style="width:60px;">
+              <h3>Centro C</h3>
+              <p>Innovación en educación superior</p>
+            </div>
           </div>
         </div>
       </div>
-    </footer>
-
-    <section class="instituciones-section instituciones-compact">
-      <h2>Instituciones Asociadas</h2>
-      <div class="logos-container">
-        <div class="logo-item">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/2/25/PascualBravo.svg" width="70">
-          <h3>Universidad A</h3>
-          <p>Excelencia académica desde 1995</p>
-        </div>
-        <div class="logo-item">
-          <img src="sadep-logo.png" style="width:80px;">
-          <h3>Instituto B</h3>
-          <p>Formación integral de profesionales</p>
-        </div>
-        <div class="logo-item">
-          <img src="kk.png" style="width:60px;">
-          <h3>Centro C</h3>
-          <p>Innovación en educación superior</p>
-        </div>
-      </div>
     </section>
-
   </div>
 
-  <!-- VISTA: PERFIL -->
   <section id="vista-perfil" class="vista-secundaria" style="display:none;">
     <button class="btn-volver" onclick="volverAlPortal()">← Volver</button>
     <div class="perfil-card">
       <h2>Mi Perfil</h2>
       <p class="perfil-sub">Personaliza tu nombre y tu icono. Se mostrarán en cada comentario que publiques.</p>
-
       <div class="perfil-avatar-grande" id="perfilAvatarGrande">--</div>
-
       <label class="perfil-label">Nombre para mostrar</label>
       <input type="text" id="perfilNombre" placeholder="¿Cómo quieres que te vean?" maxlength="40">
-
       <label class="perfil-label">Elige tu icono</label>
       <div class="icon-picker" id="iconPicker"></div>
-
       <div class="perfil-info">
         <div><span>Correo:</span> <strong id="perfilCorreo">—</strong></div>
         <div><span>Rol:</span> <strong id="perfilRol">—</strong></div>
       </div>
-
       <button class="btn-publicar btn-guardar-perfil" onclick="guardarPerfil()">Guardar cambios</button>
     </div>
   </section>
 
-  <!-- VISTA: CONÓCENOS (vacía por ahora) -->
   <section id="vista-conocenos" class="vista-secundaria" style="display:none;">
     <button class="btn-volver" onclick="volverAlPortal()">← Volver</button>
     <div class="conocenos-card">
       <span class="footer-tag">E.E SADEP</span>
       <h2>Conócenos</h2>
-      <p class="conocenos-sub">Próximamente conocerás más sobre nuestra historia, nuestros valores y nuestro equipo.</p>
+      <p class="conocenos-sub">Conoce más sobre nuestra historia, nuestros valores y nuestro equipo.</p>
+      <div class="conocenos-grid">
+        <button type="button" class="conocenos-item" onclick="abrirConocenos(1)">
+          <span class="conocenos-icon">📜</span><h3>Sección 1</h3><p>Próximamente</p>
+        </button>
+        <button type="button" class="conocenos-item" onclick="abrirConocenos(2)">
+          <span class="conocenos-icon">🎯</span><h3>Sección 2</h3><p>Próximamente</p>
+        </button>
+        <button type="button" class="conocenos-item" onclick="abrirConocenos(3)">
+          <span class="conocenos-icon">👥</span><h3>Sección 3</h3><p>Próximamente</p>
+        </button>
+      </div>
     </div>
   </section>
-
-  <!-- BARRA INFERIOR DE NAVEGACIÓN POR ICONOS -->
-  <nav class="footer-nav-bar">
-    <button class="footer-nav-item" onclick="irAInicio()" title="Cerrar sesión y volver al login">
-      <span class="fnav-icon">🏠</span>
-      <span class="fnav-label">Inicio</span>
-    </button>
-    <button class="footer-nav-item" onclick="mostrarPerfil()" title="Mi perfil">
-      <span class="fnav-icon">👤</span>
-      <span class="fnav-label">Perfil</span>
-    </button>
-    <button class="footer-nav-item" onclick="mostrarConocenos()" title="Conócenos">
-      <span class="fnav-icon">ℹ️</span>
-      <span class="fnav-label">Conócenos</span>
-    </button>
-  </nav>
-
 </div>
 
 <script src="script.js"></script>
-
 </body>
 </html>
-
