@@ -97,10 +97,11 @@
 </div>
 
 <div id="portal" style="display:none;">
-  <nav class="footer-nav-bar">
+    <nav class="footer-nav-bar">
     <button class="footer-nav-item" onclick="irAInicio()"><span class="fnav-icon">🏠</span><span class="fnav-label">Inicio</span></button>
     <button class="footer-nav-item" onclick="mostrarPerfil()"><span class="fnav-icon">👤</span><span class="fnav-label">Perfil</span></button>
     <button class="footer-nav-item" onclick="mostrarConocenos()"><span class="fnav-icon">ℹ️</span><span class="fnav-label">Conócenos</span></button>
+    <button class="footer-nav-item" onclick="mostrarLideres()"><span class="fnav-icon">🌟</span><span class="fnav-label">Líderes</span></button>
   </nav>
 
   <div id="vista-portal-principal">
@@ -115,7 +116,6 @@
     <section id="content-admin" class="portal-content-section" style="display:none;">
       <h2>Panel de Administración</h2>
       <div id="muro-admin" class="muro-container"></div>
-
       <div class="admin-registros-section">
         <div class="admin-registros-header">
           <h3>Solicitudes de Registro</h3>
@@ -142,18 +142,15 @@
           <h4 class="ci-instituciones-title">Instituciones Asociadas</h4>
           <div class="logos-container">
             <div class="logo-item">
-              <img src="escudo-pascual-bravo.png" 
-              width="84" alt="Universidad A">
+              <img src="escudo-pascual-bravo.png" width="84" alt="Universidad A">
               <h3>Universidad Pascual Bravo</h3>
             </div>
             <div class="logo-item">
-              <img src="sadep-logo.png" 
-              style="width:82px;" alt="Instituto B">
+              <img src="sadep-logo.png" style="width:82px;" alt="Instituto B">
               <h3>I.E. San Antonio De Prado</h3>
             </div>
             <div class="logo-item">
-              <img src="kk.png" 
-              style="width:60px;" alt="Centro C">
+              <img src="kk.png" style="width:60px;" alt="Centro C">
               <h3>Secretaria de Educación de Medellín</h3>
             </div>
           </div>
@@ -188,19 +185,181 @@
       <p class="conocenos-sub">Conoce más sobre nuestra historia, nuestros valores y nuestro equipo.</p>
       <div class="conocenos-grid">
         <button type="button" class="conocenos-item" onclick="abrirConocenos(1)">
-          <span class="conocenos-icon">📜</span><h3>Sección 1</h3><p>Próximamente</p>
+          <span class="conocenos-icon">📜</span><h3>Celene Salazar</h3><p>Ver hoja de vida</p>
         </button>
         <button type="button" class="conocenos-item" onclick="abrirConocenos(2)">
-          <span class="conocenos-icon">🎯</span><h3>Sección 2</h3><p>Próximamente</p>
+          <span class="conocenos-icon">🎯</span><h3>Dayana Mosquera</h3><p>Ver hoja de vida</p>
         </button>
         <button type="button" class="conocenos-item" onclick="abrirConocenos(3)">
-          <span class="conocenos-icon">👥</span><h3>Sección 3</h3><p>Próximamente</p>
+          <span class="conocenos-icon">👥</span><h3>Mariangel Mosquera</h3><p>Ver hoja de vida</p>
         </button>
       </div>
     </div>
   </section>
-</div>
+  <section id="vista-lideres" class="vista-secundaria" style="display:none;">
+    <button class="btn-volver" onclick="volverAlPortal()">← Volver</button>
+    <div class="conocenos-card">
+      <span class="footer-tag">E.E SADEP</span>
+      <h2>Líderes Estudiantiles</h2>
+      <p class="conocenos-sub">Conoce a los representantes y líderes de nuestra comunidad estudiantil.</p>
+      <div class="conocenos-grid">
+        <button type="button" class="conocenos-item">
+          <span class="conocenos-icon">👑</span><h3>Presidente</h3><p>Representante principal</p>
+        </button>
+        <button type="button" class="conocenos-item">
+          <span class="conocenos-icon">🤝</span><h3>Vicepresidente</h3><p>Apoyo a la presidencia</p>
+        </button>
+        <button type="button" class="conocenos-item">
+          <span class="conocenos-icon">📋</span><h3>Secretario/a</h3><p>Gestión y actas</p>
+        </button>
+        <button type="button" class="conocenos-item">
+          <span class="conocenos-icon">💰</span><h3>Tesorero/a</h3><p>Administración de recursos</p>
+        </button>
+        <button type="button" class="conocenos-item">
+          <span class="conocenos-icon">📣</span><h3>Vocal</h3><p>Vocero estudiantil</p>
+        </button>
+      </div>
+    </div>
+  </section>
+  <section id="vista-hoja-vida" class="vista-secundaria" style="display:none; max-width:100%;">
+    <button class="btn-volver" onclick="volverAConocenos()">← Volver a Conócenos</button>
+    <iframe id="cv-iframe" src="" style="width:100%; height:88vh; border:none; border-radius:12px; margin-top:12px;"></iframe>
+  </section>
 
+</div>
+<div class="orb-extra orb-a" id="orbA"></div>
+<div class="orb-extra orb-b" id="orbB"></div>
+<div class="orb-extra orb-c" id="orbC"></div>
+<script>
+  document.addEventListener("mousemove", function(e) {
+    var cx = e.clientX / window.innerWidth;
+    var cy = e.clientY / window.innerHeight;
+    var a = document.getElementById("orbA");
+    var b = document.getElementById("orbB");
+    var c = document.getElementById("orbC");
+    if (a) a.style.transform = "translate(" + (cx * 40 - 20) + "px, " + (cy * 30 - 15) + "px)";
+    if (b) b.style.transform = "translate(" + (cx * -30 + 15) + "px, " + (cy * 40 - 20) + "px)";
+    if (c) c.style.transform = "translate(" + (cx * 25 - 12) + "px, " + (cy * -25 + 12) + "px)";
+  });
+</script>
 <script src="script.js"></script>
 </body>
+<svg id="bg-curve" style="position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;overflow:visible;" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="softglow">
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="wideglow">
+      <feGaussianBlur stdDeviation="28" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <linearGradient id="wg1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="white" stop-opacity="0"/>
+      <stop offset="25%"  stop-color="white" stop-opacity="0.6"/>
+      <stop offset="55%"  stop-color="white" stop-opacity="0.85"/>
+      <stop offset="80%"  stop-color="white" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="white" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="wg2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="white" stop-opacity="0"/>
+      <stop offset="40%"  stop-color="white" stop-opacity="0.35"/>
+      <stop offset="70%"  stop-color="white" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="white" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Halo amplio línea 1 -->
+  <path d="M -200,420 C 50,200 150,580 350,320 C 500,130 620,500 820,280 C 950,140 1080,440 1280,260 C 1420,130 1550,380 1800,220"
+    stroke="url(#wg1)" stroke-width="120" fill="none" opacity="0.05" filter="url(#wideglow)">
+    <animate attributeName="d"
+      values="
+        M -200,420 C 50,200 150,580 350,320 C 500,130 620,500 820,280 C 950,140 1080,440 1280,260 C 1420,130 1550,380 1800,220;
+        M -200,400 C 60,250 140,540 360,360 C 510,180 600,480 840,300 C 960,170 1060,420 1300,290 C 1440,160 1540,350 1800,240;
+        M -200,420 C 50,200 150,580 350,320 C 500,130 620,500 820,280 C 950,140 1080,440 1280,260 C 1420,130 1550,380 1800,220"
+      dur="16s" repeatCount="indefinite"/>
+  </path>
+
+  <!-- Línea brillante principal ondulada -->
+  <path d="M -200,420 C 50,200 150,580 350,320 C 500,130 620,500 820,280 C 950,140 1080,440 1280,260 C 1420,130 1550,380 1800,220"
+    stroke="url(#wg1)" stroke-width="1.4" fill="none" opacity="0.9" filter="url(#softglow)">
+    <animate attributeName="d"
+      values="
+        M -200,420 C 50,200 150,580 350,320 C 500,130 620,500 820,280 C 950,140 1080,440 1280,260 C 1420,130 1550,380 1800,220;
+        M -200,400 C 60,250 140,540 360,360 C 510,180 600,480 840,300 C 960,170 1060,420 1300,290 C 1440,160 1540,350 1800,240;
+        M -200,420 C 50,200 150,580 350,320 C 500,130 620,500 820,280 C 950,140 1080,440 1280,260 C 1420,130 1550,380 1800,220"
+      dur="16s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.9;0.45;0.9" dur="8s" repeatCount="indefinite"/>
+  </path>
+
+  <!-- Halo amplio línea 2 (más abajo, diferente onda) -->
+  <path d="M -200,680 C 100,480 200,820 450,600 C 640,430 700,750 950,560 C 1100,430 1200,700 1450,520 C 1620,390 1720,640 1900,500"
+    stroke="url(#wg2)" stroke-width="90" fill="none" opacity="0.04" filter="url(#wideglow)">
+    <animate attributeName="d"
+      values="
+        M -200,680 C 100,480 200,820 450,600 C 640,430 700,750 950,560 C 1100,430 1200,700 1450,520 C 1620,390 1720,640 1900,500;
+        M -200,660 C 110,510 190,800 460,630 C 650,460 690,730 960,590 C 1110,460 1190,680 1460,550 C 1630,420 1710,620 1900,520;
+        M -200,680 C 100,480 200,820 450,600 C 640,430 700,750 950,560 C 1100,430 1200,700 1450,520 C 1620,390 1720,640 1900,500"
+      dur="20s" repeatCount="indefinite"/>
+  </path>
+
+  <!-- Línea fina segunda onda -->
+  <path d="M -200,680 C 100,480 200,820 450,600 C 640,430 700,750 950,560 C 1100,430 1200,700 1450,520 C 1620,390 1720,640 1900,500"
+    stroke="url(#wg2)" stroke-width="1" fill="none" opacity="0.5" filter="url(#softglow)">
+    <animate attributeName="opacity" values="0.5;0.18;0.5" dur="11s" repeatCount="indefinite"/>
+  </path>
+</svg>
+  <defs>
+    <filter id="glow1">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glow2">
+      <feGaussianBlur stdDeviation="18" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="white" stop-opacity="0"/>
+      <stop offset="30%"  stop-color="white" stop-opacity="0.7"/>
+      <stop offset="60%"  stop-color="white" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="white" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Halo difuso debajo -->
+  <path d="M -100,320 C 200,80 500,500 900,180 C 1100,60 1300,320 1600,200"
+    stroke="url(#lineGrad)" stroke-width="80" fill="none"
+    opacity="0.04" filter="url(#glow2)">
+    <animate attributeName="d"
+      values="
+        M -100,320 C 200,80  500,500 900,180 C 1100,60  1300,320 1600,200;
+        M -100,300 C 180,120 520,460 880,210 C 1080,90  1320,280 1600,220;
+        M -100,320 C 200,80  500,500 900,180 C 1100,60  1300,320 1600,200"
+      dur="12s" repeatCount="indefinite"/>
+  </path>
+
+  <!-- Línea brillante fina encima -->
+  <path d="M -100,320 C 200,80 500,500 900,180 C 1100,60 1300,320 1600,200"
+    stroke="url(#lineGrad)" stroke-width="1.5" fill="none"
+    opacity="0.85" filter="url(#glow1)">
+    <animate attributeName="d"
+      values="
+        M -100,320 C 200,80  500,500 900,180 C 1100,60  1300,320 1600,200;
+        M -100,300 C 180,120 520,460 880,210 C 1080,90  1320,280 1600,220;
+        M -100,320 C 200,80  500,500 900,180 C 1100,60  1300,320 1600,200"
+      dur="12s" repeatCount="indefinite"/>
+    <animate attributeName="opacity"
+      values="0.85;0.5;0.85"
+      dur="6s" repeatCount="indefinite"/>
+  </path>
+
+  <!-- Segunda línea curva más abajo, más suave -->
+  <path d="M -100,600 C 300,400 600,700 1000,480 C 1200,370 1400,560 1700,440"
+    stroke="white" stroke-width="1" fill="none"
+    opacity="0.2" filter="url(#glow1)">
+    <animate attributeName="opacity"
+      values="0.2;0.08;0.2"
+      dur="9s" repeatCount="indefinite"/>
+  </path>
+</svg>
 </html>

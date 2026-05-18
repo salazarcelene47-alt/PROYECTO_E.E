@@ -216,37 +216,92 @@ function volverAlPortal() {
 }
 
 function volverAlPortalPrincipal() {
-  var perfil     = document.getElementById("vista-perfil");
-  var conocenos  = document.getElementById("vista-conocenos");
-  var principal  = document.getElementById("vista-portal-principal");
+  var perfil    = document.getElementById("vista-perfil");
+  var conocenos = document.getElementById("vista-conocenos");
+  var hojaVida  = document.getElementById("vista-hoja-vida");
+  var lideres   = document.getElementById("vista-lideres");
+  var principal = document.getElementById("vista-portal-principal");
+  var iframe    = document.getElementById("cv-iframe");
   if (perfil)    perfil.style.display    = "none";
   if (conocenos) conocenos.style.display = "none";
+  if (hojaVida)  hojaVida.style.display  = "none";
+  if (lideres)   lideres.style.display   = "none";
+  if (iframe)    iframe.src              = "";
   if (principal) principal.style.display = "block";
 }
 
+
 function mostrarPerfil() {
-  var principal  = document.getElementById("vista-portal-principal");
-  var conocenos  = document.getElementById("vista-conocenos");
-  var perfil     = document.getElementById("vista-perfil");
+  var principal = document.getElementById("vista-portal-principal");
+  var conocenos = document.getElementById("vista-conocenos");
+  var hojaVida  = document.getElementById("vista-hoja-vida");
+  var lideres   = document.getElementById("vista-lideres");
+  var perfil    = document.getElementById("vista-perfil");
+  var iframe    = document.getElementById("cv-iframe");
   if (principal) principal.style.display = "none";
   if (conocenos) conocenos.style.display = "none";
+  if (hojaVida)  hojaVida.style.display  = "none";
+  if (lideres)   lideres.style.display   = "none";
+  if (iframe)    iframe.src              = "";
   if (perfil)    perfil.style.display    = "block";
   montarPerfil();
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
-
 function mostrarConocenos() {
-  var principal  = document.getElementById("vista-portal-principal");
-  var perfil     = document.getElementById("vista-perfil");
-  var conocenos  = document.getElementById("vista-conocenos");
+  var principal = document.getElementById("vista-portal-principal");
+  var perfil    = document.getElementById("vista-perfil");
+  var hojaVida  = document.getElementById("vista-hoja-vida");
+  var lideres   = document.getElementById("vista-lideres");
+  var conocenos = document.getElementById("vista-conocenos");
+  var iframe    = document.getElementById("cv-iframe");
   if (principal) principal.style.display = "none";
   if (perfil)    perfil.style.display    = "none";
+  if (hojaVida)  hojaVida.style.display  = "none";
+  if (lideres)   lideres.style.display   = "none";
+  if (iframe)    iframe.src              = "";
   if (conocenos) conocenos.style.display = "block";
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
+function mostrarLideres() {
+  var principal = document.getElementById("vista-portal-principal");
+  var perfil    = document.getElementById("vista-perfil");
+  var conocenos = document.getElementById("vista-conocenos");
+  var hojaVida  = document.getElementById("vista-hoja-vida");
+  var lideres   = document.getElementById("vista-lideres");
+  var iframe    = document.getElementById("cv-iframe");
+  if (principal) principal.style.display = "none";
+  if (perfil)    perfil.style.display    = "none";
+  if (conocenos) conocenos.style.display = "none";
+  if (hojaVida)  hojaVida.style.display  = "none";
+  if (iframe)    iframe.src              = "";
+  if (lideres)   lideres.style.display   = "block";
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
 function abrirConocenos(n) {
-  alert("Sección " + n + " — Próximamente");
+  var cvArchivos = {
+    1: "hoja_de_vida_cele.html",
+    2: "hoja_de_vida_dayana.html",
+    3: "hoja_de_vida_maria.html"
+  };
+  var conocenos = document.getElementById("vista-conocenos");
+  var hojaVida  = document.getElementById("vista-hoja-vida");
+  var iframe    = document.getElementById("cv-iframe");
+  if (conocenos) conocenos.style.display = "none";
+  if (hojaVida)  hojaVida.style.display  = "block";
+  if (iframe && cvArchivos[n]) iframe.src = cvArchivos[n];
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function volverAConocenos() {
+  var hojaVida  = document.getElementById("vista-hoja-vida");
+  var conocenos = document.getElementById("vista-conocenos");
+  var iframe    = document.getElementById("cv-iframe");
+  if (hojaVida)  hojaVida.style.display  = "none";
+  if (iframe)    iframe.src              = "";
+  if (conocenos) conocenos.style.display = "block";
+  window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
 /* ==============================================

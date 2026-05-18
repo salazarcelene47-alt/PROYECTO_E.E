@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mariangel Mosquera - Hoja de Vida</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body::-webkit-scrollbar{display:none}
+body{scrollbar-width:none;-ms-overflow-style:none}
+body{font-family:'Inter',sans-serif;background:transparent;min-height:100vh;display:flex;align-items:flex-start;justify-content:center;padding:16px}
+.cv{width:100%;max-width:820px;background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 20px 60px rgba(30,60,114,.18)}
+.cv-header{background:linear-gradient(135deg,#1e3c72 0%,#2a5298 50%,#3b6fd4 100%);padding:40px 40px 36px;display:flex;align-items:center;gap:28px;position:relative;overflow:hidden}
+.cv-header::before{content:'';position:absolute;top:-60px;right:-60px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,.06)}
+.cv-header::after{content:'';position:absolute;bottom:-40px;right:80px;width:140px;height:140px;border-radius:50%;background:rgba(255,255,255,.04)}
+.avatar{width:110px;height:110px;border-radius:50%;border:4px solid rgba(255,255,255,.35);overflow:hidden;flex-shrink:0;background:#2a5298;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(0,0,0,.2)}
+.avatar img{width:100%;height:100%;object-fit:cover}
+.avatar-initials{font-size:38px;font-weight:700;color:#fff;letter-spacing:1px}
+.header-info{flex:1;position:relative;z-index:1}
+.header-info h1{font-size:34px;font-weight:800;color:#fff;line-height:1.1;letter-spacing:-.5px}
+.header-info .role{display:inline-block;margin-top:10px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.3);color:#fff;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:5px 14px;border-radius:20px;backdrop-filter:blur(8px)}
+.cv-body{display:grid;grid-template-columns:260px 1fr}
+.sidebar{background:#f7f9fc;padding:32px 24px;border-right:1px solid #e8ecf2;display:flex;flex-direction:column;gap:28px}
+.s-block{}
+.s-label{font-size:10px;font-weight:700;color:#1e3c72;letter-spacing:2px;text-transform:uppercase;margin-bottom:14px;padding-bottom:8px;border-bottom:2px solid #1e3c72}
+.contact-row{display:flex;align-items:flex-start;gap:10px;margin-bottom:12px}
+.contact-row:last-child{margin-bottom:0}
+.contact-icon{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#1e3c72,#3b6fd4);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.contact-icon svg{width:14px;height:14px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.contact-text{font-size:12px;color:#374151;line-height:1.4;padding-top:6px;word-break:break-all}
+.edu-item{background:#fff;border-radius:10px;padding:12px 14px;border-left:3px solid #1e3c72;box-shadow:0 2px 8px rgba(30,60,114,.07)}
+.edu-name{font-size:12px;font-weight:600;color:#1e3c72;line-height:1.3}
+.edu-sub{font-size:11px;color:#6b7280;margin-top:3px}
+.skills-wrap{display:flex;flex-wrap:wrap;gap:6px}
+.skill-tag{background:linear-gradient(135deg,#e8f0fb,#dbeafe);color:#1e3c72;font-size:11px;font-weight:500;padding:5px 10px;border-radius:20px;border:1px solid #bfdbfe}
+.main{padding:32px 36px;display:flex;flex-direction:column;gap:28px}
+.m-section{}
+.m-label{font-size:10px;font-weight:700;color:#1e3c72;letter-spacing:2px;text-transform:uppercase;margin-bottom:16px;padding-bottom:8px;border-bottom:2px solid #1e3c72;display:flex;align-items:center;gap:8px}
+.m-label span{display:inline-flex;width:6px;height:6px;border-radius:50%;background:#3b6fd4}
+.profile-text{font-size:13px;color:#374151;line-height:1.75;text-align:justify}
+.exp-card{background:#f7f9fc;border-radius:12px;padding:16px 18px;border:1px solid #e5eaf3}
+.exp-title{font-size:14px;font-weight:700;color:#1e3c72;margin-bottom:10px}
+.exp-list{list-style:none;display:flex;flex-direction:column;gap:6px}
+.exp-list li{font-size:12.5px;color:#374151;padding-left:16px;position:relative;line-height:1.5}
+.exp-list li::before{content:'';position:absolute;left:0;top:7px;width:6px;height:6px;border-radius:50%;background:#3b6fd4}
+.lang-row{display:flex;align-items:center;gap:14px}
+.lang-name{font-size:13px;font-weight:600;color:#1e3c72;min-width:50px}
+.lang-badge{font-size:11px;font-weight:700;color:#fff;background:linear-gradient(135deg,#1e3c72,#3b6fd4);padding:3px 10px;border-radius:20px;min-width:36px;text-align:center}
+.lang-bar{flex:1;height:7px;background:#e5eaf3;border-radius:4px;overflow:hidden}
+.lang-fill{height:100%;background:linear-gradient(90deg,#1e3c72,#3b6fd4);border-radius:4px}
+@media(max-width:640px){
+  .cv-body{grid-template-columns:1fr}
+  .sidebar{border-right:none;border-bottom:1px solid #e8ecf2}
+  .cv-header{flex-direction:column;text-align:center;padding:28px 20px}
+  .main{padding:24px 20px}
+}
+</style>
+</head>
+<body>
+<div class="cv">
+
+  <div class="cv-header">
+    <div class="avatar">
+      <img src="fotop.jpeg" alt="Mariangel Mosquera" onerror="this.parentElement.innerHTML='<span class=\'avatar-initials\'>MM</span>'">
+    </div>
+    <div class="header-info">
+      <h1>Mariangel Mosquera</h1>
+      <span class="role">Estudiante en Formación</span>
+    </div>
+  </div>
+
+  <div class="cv-body">
+    <aside class="sidebar">
+
+      <div class="s-block">
+        <div class="s-label">Contacto</div>
+        <div class="contact-row">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.82 19.79 19.79 0 01.01 1.22 2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14v2.92z"/></svg>
+          </div>
+          <div class="contact-text">(+57) 302 245 29 91</div>
+        </div>
+        <div class="contact-row">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div class="contact-text">mariangelvangeasadep@gmail.com</div>
+        </div>
+      </div>
+
+      <div class="s-block">
+        <div class="s-label">Educación</div>
+        <div class="edu-item">
+          <div class="edu-name">I.E. San Antonio de Prado</div>
+          <div class="edu-sub">Bachiller académico — en curso</div>
+          <div class="edu-sub" style="margin-top:2px;color:#1e3c72;font-weight:500">Medellín, Colombia</div>
+        </div>
+      </div>
+
+      <div class="s-block">
+        <div class="s-label">Habilidades</div>
+        <div class="skills-wrap">
+          <span class="skill-tag">Resolución de conflictos</span>
+          <span class="skill-tag">Comunicación</span>
+          <span class="skill-tag">Empatía</span>
+          <span class="skill-tag">Creatividad</span>
+          <span class="skill-tag">Matemáticas</span>
+          <span class="skill-tag">Lógica de programación</span>
+          <span class="skill-tag">Paciencia</span>
+        </div>
+      </div>
+
+    </aside>
+
+    <main class="main">
+
+      <div class="m-section">
+        <div class="m-label"><span></span>Perfil Personal</div>
+        <p class="profile-text">
+          Estudiante de grado 11 con formación en media técnica como auxiliar en desarrollo de software, próxima a finalizar. Me caracterizo por ser creativa, responsable, dedicada y respetuosa. Tengo habilidades en lógica matemática y pensamiento analítico, además de experiencia en apoyo a negocio familiar, lo que me ha permitido desarrollar disciplina, compromiso y habilidades emprendedoras. Busco una oportunidad para adquirir experiencia laboral y seguir fortaleciendo mis conocimientos.
+        </p>
+      </div>
+
+      <div class="m-section">
+        <div class="m-label"><span></span>Experiencia</div>
+        <div class="exp-card">
+          <div class="exp-title">Apoyo en negocio familiar</div>
+          <ul class="exp-list">
+            <li>Atención al cliente</li>
+            <li>Organización de productos</li>
+            <li>Apoyo en ventas</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="m-section">
+        <div class="m-label"><span></span>Idiomas</div>
+        <div class="lang-row">
+          <div class="lang-name">Inglés</div>
+          <div class="lang-badge">A1</div>
+          <div class="lang-bar"><div class="lang-fill" style="width:15%"></div></div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+</div>
+</body>
+</html>
