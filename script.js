@@ -195,7 +195,7 @@ function cerrarSesion() {
   if (loginSec) loginSec.style.display = "flex";
   if (header)   header.style.display   = "block";
 
-  var rolEl  = document.getElementById("rol");
+  var rolEl   = document.getElementById("rol");
   var emailEl = document.getElementById("email");
   var passEl  = document.getElementById("password");
   if (rolEl)   rolEl.value   = "inicio";
@@ -230,7 +230,6 @@ function volverAlPortalPrincipal() {
   if (principal) principal.style.display = "block";
 }
 
-
 function mostrarPerfil() {
   var principal = document.getElementById("vista-portal-principal");
   var conocenos = document.getElementById("vista-conocenos");
@@ -247,6 +246,7 @@ function mostrarPerfil() {
   montarPerfil();
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
+
 function mostrarConocenos() {
   var principal = document.getElementById("vista-portal-principal");
   var perfil    = document.getElementById("vista-perfil");
@@ -452,9 +452,9 @@ function cargarRegistros() {
 function crearTarjetaRegistro(u) {
   var fecha = new Date(u.createdAt).toLocaleDateString("es-CO", { day: "2-digit", month: "short", year: "numeric" });
   var extras = [];
-  if (u.tipoUsuario)   extras.push('<span class="reg-tipo">Tipo: '          + escapar(u.tipoUsuario)   + '</span>');
-  if (u.anoGraduacion) extras.push('<span class="reg-grad">Graduación: '    + escapar(u.anoGraduacion) + '</span>');
-  if (u.telefono)      extras.push('<span class="reg-tel">Tel: '            + escapar(u.telefono)      + '</span>');
+  if (u.tipoUsuario)   extras.push('<span class="reg-tipo">Tipo: '       + escapar(u.tipoUsuario)   + '</span>');
+  if (u.anoGraduacion) extras.push('<span class="reg-grad">Graduación: ' + escapar(u.anoGraduacion) + '</span>');
+  if (u.telefono)      extras.push('<span class="reg-tel">Tel: '         + escapar(u.telefono)      + '</span>');
 
   var statusLabel = u.status ? (u.status.charAt(0).toUpperCase() + u.status.slice(1)) : "";
   var rolLabel    = ROL_ETIQUETAS[u.rol] || u.rol || "";
@@ -656,13 +656,13 @@ function construirMuro(cont, id) {
     ? "Como administrador puedes moderar (eliminar) cualquier comentario."
     : "Conecta con la comunidad SADEP. Todos ven todos los comentarios.";
 
+  /* El indicador "En vivo" ha sido eliminado */
   cont.innerHTML =
     '<div class="muro-header">' +
       '<div class="muro-titulo">' +
         '<h3>Muro Académico</h3>' +
         '<p>' + escapar(sub) + '</p>' +
       '</div>' +
-      '<span class="muro-pill"><span class="dot"></span> En vivo</span>' +
     '</div>' +
     '<div class="muro-form">' +
       '<div class="form-row">' +
