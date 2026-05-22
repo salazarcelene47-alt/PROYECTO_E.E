@@ -8,6 +8,13 @@ var currentSlide = 0;
 var totalSlides = 3;
 var autoCarouselTimer = null;
 
+/* ---------- FRASES INSPIRADORAS POR ROL ---------- */
+var FRASES_POR_ROL = {
+  egresados: "Si quieres llegar rápido, camina solo. Si quieres llegar lejos, camina acompañado.",
+  estudiantes: "Si quieres llegar rápido, camina solo. Si quieres llegar lejos, camina acompañado.",
+  admin: "Como administrador, cuidas que todos caminemos juntos hacia el éxito."
+};
+
 /* ---------- INICIO ---------- */
 document.addEventListener("DOMContentLoaded", function () {
   iniciarCarrusel();
@@ -652,16 +659,18 @@ function construirMuro(cont, id) {
   var correo = localStorage.getItem("correoUsuario") || "";
   var p      = obtenerPerfil(correo);
   var av     = p.icono || inicialesDe(rol, correo);
-  var sub    = (rol === "admin")
-    ? "Como administrador puedes moderar (eliminar) cualquier comentario."
-    : "Conecta con la comunidad SADEP. Todos ven todos los comentarios.";
+  
+  /* Obtener la frase inspiradora según el rol */
+  var frase = FRASES_POR_ROL[rol] || FRASES_POR_ROL.estudiantes;
+  
+  /* Nombres personalizados por rol */
+  var nombreSeccion = ETIQUETA_ROL[rol] || "Comunidad";
 
-  /* El indicador "En vivo" ha sido eliminado */
   cont.innerHTML =
     '<div class="muro-header">' +
       '<div class="muro-titulo">' +
-        '<h3>Muro Académico</h3>' +
-        '<p>' + escapar(sub) + '</p>' +
+        '<h3>' + escapar(nombreSeccion) + '</h3>' +
+        '<p>' + escapar(frase) + '</p>' +
       '</div>' +
     '</div>' +
     '<div class="muro-form">' +
@@ -810,7 +819,7 @@ function renderizarComentarios() {
         '<div class="muro-empty">' +
           '<span class="icon">💭</span>' +
           '<p><strong>Aún no hay publicaciones</strong></p>' +
-          '<p>Sé el primero en escribir algo en el muro.</p>' +
+          '<p>Sé el primero en escribir algo en la comunidad.</p>' +
         '</div>';
       return;
     }

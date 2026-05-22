@@ -168,7 +168,6 @@
     </div>
   </section>
 
-  <!-- CONÓCENOS: slots de foto con fallback de iniciales -->
   <section id="vista-conocenos" class="vista-secundaria" style="display:none;">
     <button class="btn-volver" onclick="volverAlPortal()">← Volver</button>
     <div class="conocenos-card">
@@ -198,16 +197,15 @@
           <div class="conocenos-foto-slot">
             <img src="foto_mariangel.jpg" alt="Mariangel Mosquera" class="conocenos-foto-img"
                  onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-            <div class="conocenos-foto-fallback">MM</div>
+            <div class="conocenos-foto-fallback">MV</div>
           </div>
-          <h3>Mariangel Mosquera</h3>
+          <h3>Mariangel Vanegas</h3>
           <p>Ver hoja de vida</p>
         </button>
       </div>
     </div>
   </section>
 
-  <!-- LÍDERES: pirámide 1 arriba / 2 en medio / 3 abajo -->
   <section id="vista-lideres" class="vista-secundaria" style="display:none;">
     <button class="btn-volver" onclick="volverAlPortal()">← Volver</button>
     <div class="conocenos-card">
@@ -217,7 +215,6 @@
 
       <div class="lideres-piramide">
 
-        <!-- FILA 1: 1 tarjeta (tope) -->
         <div class="lideres-fila lideres-fila-1">
           <button type="button" class="conocenos-item lider-top">
             <img src="foto_lider_principal.jpg" alt="Líder Principal" class="conocenos-img"
@@ -228,7 +225,6 @@
           </button>
         </div>
 
-        <!-- FILA 2: 2 tarjetas -->
         <div class="lideres-fila lideres-fila-2">
           <button type="button" class="conocenos-item">
             <img src="imagenesgeraldine.jpg" alt="Geraldine Suarez" class="conocenos-img"
@@ -246,7 +242,6 @@
           </button>
         </div>
 
-        <!-- FILA 3: 3 tarjetas (base) -->
         <div class="lideres-fila lideres-fila-3">
           <button type="button" class="conocenos-item">
             <img src="imagenesjuan.jpg" alt="Juan Esteban Morales" class="conocenos-img"
@@ -300,151 +295,50 @@
 <script src="script.js"></script>
 </body>
 
+<!-- SVG DE FONDO: 3 líneas estáticas en azul índigo, sin animación -->
 <svg id="bg-lines" style="position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;overflow:visible;" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <filter id="softglow">
-      <feGaussianBlur stdDeviation="10" result="blur"/>
-      <feMerge><feMergeNode in="blur"/><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-    <filter id="wideglow">
-      <feGaussianBlur stdDeviation="28" result="blur"/>
+      <feGaussianBlur stdDeviation="8" result="blur"/>
       <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
-    <filter id="thinGlow">
-      <feGaussianBlur stdDeviation="5" result="blur"/>
-      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-    <linearGradient id="wg1" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%"   stop-color="white" stop-opacity="0"/>
-      <stop offset="25%"  stop-color="white" stop-opacity="0.6"/>
-      <stop offset="55%"  stop-color="white" stop-opacity="0.85"/>
-      <stop offset="80%"  stop-color="white" stop-opacity="0.5"/>
-      <stop offset="100%" stop-color="white" stop-opacity="0"/>
+    <linearGradient id="lg1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="rgba(100,140,255,0)" />
+      <stop offset="25%"  stop-color="rgba(100,140,255,0.55)" />
+      <stop offset="55%"  stop-color="rgba(130,165,255,0.75)" />
+      <stop offset="80%"  stop-color="rgba(100,140,255,0.45)" />
+      <stop offset="100%" stop-color="rgba(100,140,255,0)" />
     </linearGradient>
-    <linearGradient id="wg2" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%"   stop-color="white" stop-opacity="0"/>
-      <stop offset="40%"  stop-color="white" stop-opacity="0.35"/>
-      <stop offset="70%"  stop-color="white" stop-opacity="0.55"/>
-      <stop offset="100%" stop-color="white" stop-opacity="0"/>
+    <linearGradient id="lg2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="rgba(80,120,255,0)" />
+      <stop offset="30%"  stop-color="rgba(80,120,255,0.35)" />
+      <stop offset="60%"  stop-color="rgba(110,150,255,0.55)" />
+      <stop offset="100%" stop-color="rgba(80,120,255,0)" />
     </linearGradient>
-    <linearGradient id="wg3" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%"   stop-color="white" stop-opacity="0"/>
-      <stop offset="30%"  stop-color="white" stop-opacity="0.4"/>
-      <stop offset="65%"  stop-color="white" stop-opacity="0.6"/>
-      <stop offset="100%" stop-color="white" stop-opacity="0"/>
-    </linearGradient>
-    <linearGradient id="wg4" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%"   stop-color="white" stop-opacity="0"/>
-      <stop offset="20%"  stop-color="white" stop-opacity="0.25"/>
-      <stop offset="50%"  stop-color="white" stop-opacity="0.45"/>
-      <stop offset="80%"  stop-color="white" stop-opacity="0.2"/>
-      <stop offset="100%" stop-color="white" stop-opacity="0"/>
-    </linearGradient>
-    <linearGradient id="wg5" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%"   stop-color="white" stop-opacity="0"/>
-      <stop offset="35%"  stop-color="white" stop-opacity="0.3"/>
-      <stop offset="60%"  stop-color="white" stop-opacity="0.5"/>
-      <stop offset="100%" stop-color="white" stop-opacity="0"/>
+    <linearGradient id="lg3" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="rgba(60,100,240,0)" />
+      <stop offset="35%"  stop-color="rgba(60,100,240,0.28)" />
+      <stop offset="65%"  stop-color="rgba(90,130,255,0.42)" />
+      <stop offset="100%" stop-color="rgba(60,100,240,0)" />
     </linearGradient>
   </defs>
 
-  <!-- LÍNEA 1 -->
-  <path d="M -200,420 C 50,200 150,580 350,320 C 500,130 620,500 820,280 C 950,140 1080,440 1280,260 C 1420,130 1550,380 1800,220"
-    stroke="url(#wg1)" stroke-width="110" fill="none" opacity="0.05" filter="url(#wideglow)">
-    <animate attributeName="d"
-      values="M -200,420 C 50,200 150,580 350,320 C 500,130 620,500 820,280 C 950,140 1080,440 1280,260 C 1420,130 1550,380 1800,220;M -200,400 C 60,250 140,540 360,360 C 510,180 600,480 840,300 C 960,170 1060,420 1300,290 C 1440,160 1540,350 1800,240;M -200,420 C 50,200 150,580 350,320 C 500,130 620,500 820,280 C 950,140 1080,440 1280,260 C 1420,130 1550,380 1800,220"
-      dur="16s" repeatCount="indefinite"/>
-  </path>
-  <path d="M -200,420 C 50,200 150,580 350,320 C 500,130 620,500 820,280 C 950,140 1080,440 1280,260 C 1420,130 1550,380 1800,220"
-    stroke="url(#wg1)" stroke-width="1.4" fill="none" opacity="0.9" filter="url(#softglow)">
-    <animate attributeName="d"
-      values="M -200,420 C 50,200 150,580 350,320 C 500,130 620,500 820,280 C 950,140 1080,440 1280,260 C 1420,130 1550,380 1800,220;M -200,400 C 60,250 140,540 360,360 C 510,180 600,480 840,300 C 960,170 1060,420 1300,290 C 1440,160 1540,350 1800,240;M -200,420 C 50,200 150,580 350,320 C 500,130 620,500 820,280 C 950,140 1080,440 1280,260 C 1420,130 1550,380 1800,220"
-      dur="16s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0.9;0.45;0.9" dur="8s" repeatCount="indefinite"/>
-  </path>
+  <!-- LÍNEA 1: curva principal superior -->
+  <path
+    d="M -200,380 C 100,180 300,520 600,300 C 820,140 1000,460 1300,240 C 1500,100 1680,360 1900,200"
+    stroke="url(#lg1)" stroke-width="1.6" fill="none" opacity="0.85"
+    filter="url(#softglow)" />
 
-  <!-- LÍNEA 2 -->
-  <path d="M -200,680 C 100,480 200,820 450,600 C 640,430 700,750 950,560 C 1100,430 1200,700 1450,520 C 1620,390 1720,640 1900,500"
-    stroke="url(#wg2)" stroke-width="85" fill="none" opacity="0.04" filter="url(#wideglow)">
-    <animate attributeName="d"
-      values="M -200,680 C 100,480 200,820 450,600 C 640,430 700,750 950,560 C 1100,430 1200,700 1450,520 C 1620,390 1720,640 1900,500;M -200,660 C 110,510 190,800 460,630 C 650,460 690,730 960,590 C 1110,460 1190,680 1460,550 C 1630,420 1710,620 1900,520;M -200,680 C 100,480 200,820 450,600 C 640,430 700,750 950,560 C 1100,430 1200,700 1450,520 C 1620,390 1720,640 1900,500"
-      dur="20s" repeatCount="indefinite"/>
-  </path>
-  <path d="M -200,680 C 100,480 200,820 450,600 C 640,430 700,750 950,560 C 1100,430 1200,700 1450,520 C 1620,390 1720,640 1900,500"
-    stroke="url(#wg2)" stroke-width="1" fill="none" opacity="0.5" filter="url(#thinGlow)">
-    <animate attributeName="opacity" values="0.5;0.18;0.5" dur="11s" repeatCount="indefinite"/>
-  </path>
+  <!-- LÍNEA 2: curva media -->
+  <path
+    d="M -200,640 C 150,450 350,780 700,560 C 920,420 1100,700 1400,520 C 1600,400 1760,620 1950,480"
+    stroke="url(#lg2)" stroke-width="1.2" fill="none" opacity="0.60"
+    filter="url(#softglow)" />
 
-  <!-- LÍNEA 3 -->
-  <path d="M -100,320 C 200,80 500,500 900,180 C 1100,60 1300,320 1600,200"
-    stroke="url(#wg3)" stroke-width="75" fill="none" opacity="0.04" filter="url(#wideglow)">
-    <animate attributeName="d"
-      values="M -100,320 C 200,80 500,500 900,180 C 1100,60 1300,320 1600,200;M -100,300 C 180,120 520,460 880,210 C 1080,90 1320,280 1600,220;M -100,320 C 200,80 500,500 900,180 C 1100,60 1300,320 1600,200"
-      dur="12s" repeatCount="indefinite"/>
-  </path>
-  <path d="M -100,320 C 200,80 500,500 900,180 C 1100,60 1300,320 1600,200"
-    stroke="url(#wg3)" stroke-width="1.5" fill="none" opacity="0.85" filter="url(#thinGlow)">
-    <animate attributeName="d"
-      values="M -100,320 C 200,80 500,500 900,180 C 1100,60 1300,320 1600,200;M -100,300 C 180,120 520,460 880,210 C 1080,90 1320,280 1600,220;M -100,320 C 200,80 500,500 900,180 C 1100,60 1300,320 1600,200"
-      dur="12s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0.85;0.5;0.85" dur="6s" repeatCount="indefinite"/>
-  </path>
+  <!-- LÍNEA 3: curva inferior suave -->
+  <path
+    d="M -100,900 C 300,720 550,980 900,820 C 1120,710 1350,920 1650,780 C 1820,700 1940,880 2100,760"
+    stroke="url(#lg3)" stroke-width="1.0" fill="none" opacity="0.45" />
 
-  <!-- LÍNEA 4 -->
-  <path d="M -200,870 C 150,680 300,950 600,780 C 800,650 900,880 1150,720 C 1300,610 1500,820 1800,700"
-    stroke="url(#wg4)" stroke-width="70" fill="none" opacity="0.035" filter="url(#wideglow)">
-    <animate attributeName="d"
-      values="M -200,870 C 150,680 300,950 600,780 C 800,650 900,880 1150,720 C 1300,610 1500,820 1800,700;M -200,850 C 160,710 290,930 610,800 C 810,670 890,860 1160,740 C 1310,630 1490,800 1800,720;M -200,870 C 150,680 300,950 600,780 C 800,650 900,880 1150,720 C 1300,610 1500,820 1800,700"
-      dur="18s" repeatCount="indefinite"/>
-  </path>
-  <path d="M -200,870 C 150,680 300,950 600,780 C 800,650 900,880 1150,720 C 1300,610 1500,820 1800,700"
-    stroke="url(#wg4)" stroke-width="1" fill="none" opacity="0.4" filter="url(#thinGlow)">
-    <animate attributeName="opacity" values="0.4;0.15;0.4" dur="13s" repeatCount="indefinite"/>
-  </path>
-
-  <!-- LÍNEA 5 -->
-  <path d="M 0,550 C 250,350 450,700 750,480 C 950,330 1100,600 1400,420 C 1600,310 1750,530 1920,400"
-    stroke="url(#wg5)" stroke-width="60" fill="none" opacity="0.03" filter="url(#wideglow)">
-    <animate attributeName="d"
-      values="M 0,550 C 250,350 450,700 750,480 C 950,330 1100,600 1400,420 C 1600,310 1750,530 1920,400;M 0,530 C 260,370 440,680 760,500 C 960,350 1090,580 1410,440 C 1610,330 1740,510 1920,420;M 0,550 C 250,350 450,700 750,480 C 950,330 1100,600 1400,420 C 1600,310 1750,530 1920,400"
-      dur="22s" repeatCount="indefinite"/>
-  </path>
-  <path d="M 0,550 C 250,350 450,700 750,480 C 950,330 1100,600 1400,420 C 1600,310 1750,530 1920,400"
-    stroke="url(#wg5)" stroke-width="1.2" fill="none" opacity="0.35" filter="url(#thinGlow)">
-    <animate attributeName="opacity" values="0.35;0.12;0.35" dur="14s" repeatCount="indefinite"/>
-  </path>
-
-  <!-- LÍNEA 6 -->
-  <path d="M -200,160 C 200,80 500,220 850,130 C 1100,70 1350,190 1600,110 C 1750,65 1850,160 2000,100"
-    stroke="white" stroke-width="0.9" fill="none" opacity="0.18" filter="url(#thinGlow)">
-    <animate attributeName="opacity" values="0.18;0.07;0.18" dur="9s" repeatCount="indefinite"/>
-    <animate attributeName="d"
-      values="M -200,160 C 200,80 500,220 850,130 C 1100,70 1350,190 1600,110 C 1750,65 1850,160 2000,100;M -200,150 C 210,95 490,210 860,145 C 1110,85 1340,180 1610,125 C 1760,80 1840,150 2000,115;M -200,160 C 200,80 500,220 850,130 C 1100,70 1350,190 1600,110 C 1750,65 1850,160 2000,100"
-      dur="24s" repeatCount="indefinite"/>
-  </path>
-
-  <!-- LÍNEA 7 -->
-  <path d="M -100,1050 C 300,880 550,1100 900,950 C 1100,860 1300,1020 1600,900 C 1780,840 1900,1000 2100,880"
-    stroke="white" stroke-width="0.8" fill="none" opacity="0.14" filter="url(#thinGlow)">
-    <animate attributeName="opacity" values="0.14;0.05;0.14" dur="17s" repeatCount="indefinite"/>
-    <animate attributeName="d"
-      values="M -100,1050 C 300,880 550,1100 900,950 C 1100,860 1300,1020 1600,900 C 1780,840 1900,1000 2100,880;M -100,1030 C 310,900 540,1080 910,970 C 1110,880 1290,1000 1610,920 C 1790,860 1890,980 2100,900;M -100,1050 C 300,880 550,1100 900,950 C 1100,860 1300,1020 1600,900 C 1780,840 1900,1000 2100,880"
-      dur="26s" repeatCount="indefinite"/>
-  </path>
-
-  <!-- LÍNEA 8 -->
-  <path d="M -100,600 C 300,400 600,700 1000,480 C 1200,370 1400,560 1700,440"
-    stroke="white" stroke-width="0.9" fill="none" opacity="0.2" filter="url(#thinGlow)">
-    <animate attributeName="opacity" values="0.2;0.07;0.2" dur="9s" repeatCount="indefinite"/>
-  </path>
-
-  <!-- LÍNEA 9 -->
-  <path d="M -200,75 C 300,30 700,120 1100,50 C 1350,10 1600,90 2000,40"
-    stroke="white" stroke-width="0.7" fill="none" opacity="0.12" filter="url(#thinGlow)">
-    <animate attributeName="opacity" values="0.12;0.04;0.12" dur="20s" repeatCount="indefinite"/>
-    <animate attributeName="d"
-      values="M -200,75 C 300,30 700,120 1100,50 C 1350,10 1600,90 2000,40;M -200,65 C 310,45 690,110 1110,60 C 1360,22 1590,80 2000,55;M -200,75 C 300,30 700,120 1100,50 C 1350,10 1600,90 2000,40"
-      dur="30s" repeatCount="indefinite"/>
-  </path>
 </svg>
 </html>
