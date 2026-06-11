@@ -89,11 +89,40 @@
 
 <div id="portal" style="display:none;">
   <nav class="footer-nav-bar">
-    <button class="footer-nav-item" onclick="irAInicio()"><span class="fnav-icon">🏠</span><span class="fnav-label">Inicio</span></button>
-    <button class="footer-nav-item" onclick="mostrarPerfil()"><span class="fnav-icon">👤</span><span class="fnav-label">Perfil</span></button>
-    <button class="footer-nav-item" onclick="mostrarConocenos()"><span class="fnav-icon">ℹ️</span><span class="fnav-label">Conócenos</span></button>
-    <button class="footer-nav-item" onclick="mostrarLideres()"><span class="fnav-icon">🌟</span><span class="fnav-label">Líderes</span></button>
-  </nav>
+  <button class="footer-nav-item" onclick="irAInicio()">
+    <span class="fnav-icon">
+      <img src="Inicio.png" alt="Inicio" style="width:24px;height:24px;vertical-align:middle;">
+    </span>
+    <span class="fnav-label">Inicio</span>
+  </button>
+
+  <button class="footer-nav-item" onclick="mostrarPerfil()">
+    <span class="fnav-icon">
+      <img src="Perfil.png" alt="Perfil" style="width:24px;height:24px;vertical-align:middle;">
+    </span>
+    <span class="fnav-label">Perfil</span>
+  </button>
+
+  <button class="footer-nav-item" onclick="mostrarLideres()">
+    <span class="fnav-icon">
+      <img src="Lideres.png" alt="Lideres" style="width:24px;height:24px;vertical-align:middle;">
+    </span>
+    <span class="fnav-label">Lideres</span>
+  </button>
+
+  <button class="footer-nav-item" onclick="mostrarConocenos()">
+    <span class="fnav-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+        <circle cx="9" cy="7" r="4"/>
+        <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+        <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+      </svg>
+    </span>
+    <span class="fnav-label">Conócenos</span>
+  </button>
+</nav>
+</div>
 
   <div id="vista-portal-principal">
     <section id="content-egresados" class="portal-content-section" style="display:none;">
@@ -206,74 +235,103 @@
     </div>
   </section>
 
-  <section id="vista-lideres" class="vista-secundaria" style="display:none;">
-    <button class="btn-volver" onclick="volverAlPortal()">← Volver</button>
-    <div class="conocenos-card">
-      <span class="footer-tag">E.E SADEP</span>
-      <h2>Líderes Estudiantiles</h2>
-      <p class="conocenos-sub">Conoce a los representantes y líderes de nuestra comunidad estudiantil.</p>
+ <section id="vista-lideres" class="vista-secundaria" style="display:none;">
+  <button class="btn-volver" onclick="volverAlPortal()">← Volver</button>
+  <div class="conocenos-card">
+    <span class="footer-tag">E.E SADEP</span>
+    <h2>Líderes Estudiantiles</h2>
+    <p class="conocenos-sub">Conoce a los representantes y líderes de nuestra comunidad estudiantil.</p>
 
-      <div class="lideres-piramide">
+    <div class="lideres-piramide">
 
-        <div class="lideres-fila lideres-fila-1">
-          <button type="button" class="conocenos-item lider-top">
-            <img src="foto_lider_principal.jpg" alt="Líder Principal" class="conocenos-img"
-                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-            <div class="conocenos-img-fallback">LP</div>
-            <h3>Líder Principal</h3>
-            <p>Nombre del líder</p>
-          </button>
-        </div>
-
-        <div class="lideres-fila lideres-fila-2">
-          <button type="button" class="conocenos-item">
-            <img src="imagenesgeraldine.jpg" alt="Geraldine Suarez" class="conocenos-img"
-                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-            <div class="conocenos-img-fallback">GS</div>
-            <h3>Personera</h3>
-            <p>Geraldine Suarez Milano</p>
-          </button>
-          <button type="button" class="conocenos-item">
-            <img src="imagenespaulina.jpg" alt="Paulina Montoya" class="conocenos-img"
-                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-            <div class="conocenos-img-fallback">PM</div>
-            <h3>Contralora</h3>
-            <p>Paulina Montoya Arteaga</p>
-          </button>
-        </div>
-
-        <div class="lideres-fila lideres-fila-3">
-          <button type="button" class="conocenos-item">
-            <img src="imagenesjuan.jpg" alt="Juan Esteban Morales" class="conocenos-img"
-                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-            <div class="conocenos-img-fallback">JM</div>
-            <h3>Mediador</h3>
-            <p>Juan Esteban Morales Restrepo</p>
-          </button>
-          <button type="button" class="conocenos-item">
-            <img src="imagenesjose.jpg" alt="Jose Daniel Cortes" class="conocenos-img"
-                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-            <div class="conocenos-img-fallback">JC</div>
-            <h3>Lider Deportivo</h3>
-            <p>Jose Daniel Cortes</p>
-          </button>
-          <button type="button" class="conocenos-item">
-            <img src="imagenesjacobo.jpg" alt="Jacobo Andrae Sanchez" class="conocenos-img"
-                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-            <div class="conocenos-img-fallback">JA</div>
-            <h3>Representante</h3>
-            <p>Jacobo Andrae Sanchez</p>
-          </button>
-        </div>
-
+      <div class="lideres-fila lideres-fila-1">
+        <button type="button" class="conocenos-item lider-top" onclick="abrirLider('lider_principal','Nombre del líder','Líder Principal','foto_lider_principal.jpg','LP')">
+          <img src="foto_lider_principal.jpg" alt="Líder Principal" class="conocenos-img"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="conocenos-img-fallback">LP</div>
+          <h3>Líder Principal</h3>
+          <p>Nombre del líder</p>
+        </button>
       </div>
-    </div>
-  </section>
 
-  <section id="vista-hoja-vida" class="vista-secundaria" style="display:none; max-width:100%;">
+      <div class="lideres-fila lideres-fila-2">
+        <button type="button" class="conocenos-item" onclick="abrirLider('geraldine','Geraldine Suarez Milano','Personera','imagenesgeraldine.jpg','GS')">
+          <img src="imagenesgeraldine.jpg" alt="Geraldine Suarez" class="conocenos-img"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="conocenos-img-fallback">GS</div>
+          <h3>Personera</h3>
+          <p>Geraldine Suarez Milano</p>
+        </button>
+        <button type="button" class="conocenos-item" onclick="abrirLider('paulina','Paulina Montoya Arteaga','Contralora','imagenespaulina.jpg','PM')">
+          <img src="imagenespaulina.jpg" alt="Paulina Montoya" class="conocenos-img"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="conocenos-img-fallback">PM</div>
+          <h3>Contralora</h3>
+          <p>Paulina Montoya Arteaga</p>
+        </button>
+      </div>
+
+      <div class="lideres-fila lideres-fila-3">
+        <button type="button" class="conocenos-item" onclick="abrirLider('juan','Juan Esteban Morales Restrepo','Mediador','imagenesjuan.jpg','JM')">
+          <img src="imagenesjuan.jpg" alt="Juan Esteban Morales" class="conocenos-img"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="conocenos-img-fallback">JM</div>
+          <h3>Mediador</h3>
+          <p>Juan Esteban Morales Restrepo</p>
+        </button>
+        <button type="button" class="conocenos-item" onclick="abrirLider('jose','Jose Daniel Cortes','Lider Deportivo','imagenesjose.jpg','JC')">
+          <img src="imagenesjose.jpg" alt="Jose Daniel Cortes" class="conocenos-img"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="conocenos-img-fallback">JC</div>
+          <h3>Lider Deportivo</h3>
+          <p>Jose Daniel Cortes</p>
+        </button>
+        <button type="button" class="conocenos-item" onclick="abrirLider('jacobo','Jacobo Andrae Sanchez','Representante','imagenesjacobo.jpg','JA')">
+          <img src="imagenesjacobo.jpg" alt="Jacobo Andrae Sanchez" class="conocenos-img"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="conocenos-img-fallback">JA</div>
+          <h3>Representante</h3>
+          <p>Jacobo Andrae Sanchez</p>
+        </button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="vista-lider-muro" class="vista-secundaria" style="display:none; max-width:860px;">
+  <button class="btn-volver" onclick="volverALideres()">← Volver a Líderes</button>
+
+  <div class="lider-muro-header">
+    <div class="lider-muro-avatar" id="liderMuroAvatar"></div>
+    <div class="lider-muro-info">
+      <span class="lider-muro-cargo" id="liderMuroCargo"></span>
+      <h2 class="lider-muro-nombre" id="liderMuroNombre"></h2>
+      <p class="lider-muro-desc">Escríbele un mensaje, pregunta o comentario a este líder estudiantil.</p>
+    </div>
+  </div>
+
+  <div class="muro-form" style="margin-top:28px;">
+    <div class="form-row">
+      <div class="muro-avatar" id="liderFormAvatar">?</div>
+      <textarea id="lider-muro-texto" placeholder="Escribe tu mensaje..." maxlength="500"></textarea>
+    </div>
+    <div class="muro-form-actions">
+      <span class="muro-counter" id="lider-muro-counter">0 / 500</span>
+      <button class="btn-publicar" onclick="publicarEnLider()">✦ Publicar</button>
+    </div>
+  </div>
+
+  <div class="muro-lista" id="lider-muro-lista" style="margin-top:24px;"></div>
+</section>
+
+
+
+
+ <section id="vista-hoja-vida" class="vista-secundaria" style="display:none;">
     <button class="btn-volver" onclick="volverAConocenos()">← Volver a Conócenos</button>
-    <iframe id="cv-iframe" src="" style="width:100%; height:88vh; border:none; border-radius:12px; margin-top:12px;"></iframe>
-  </section>
+    <iframe id="cv-iframe" src="" style="" scrolling="no" onload="this.style.height=this.contentWindow.document.documentElement.scrollHeight+'px'"></iframe>
+</section>
 
 </div>
 
@@ -295,50 +353,5 @@
 <script src="script.js"></script>
 </body>
 
-<!-- SVG DE FONDO: 3 líneas estáticas en azul índigo, sin animación -->
-<svg id="bg-lines" style="position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;overflow:visible;" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <filter id="softglow">
-      <feGaussianBlur stdDeviation="8" result="blur"/>
-      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
-    <linearGradient id="lg1" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%"   stop-color="rgba(100,140,255,0)" />
-      <stop offset="25%"  stop-color="rgba(100,140,255,0.55)" />
-      <stop offset="55%"  stop-color="rgba(130,165,255,0.75)" />
-      <stop offset="80%"  stop-color="rgba(100,140,255,0.45)" />
-      <stop offset="100%" stop-color="rgba(100,140,255,0)" />
-    </linearGradient>
-    <linearGradient id="lg2" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%"   stop-color="rgba(80,120,255,0)" />
-      <stop offset="30%"  stop-color="rgba(80,120,255,0.35)" />
-      <stop offset="60%"  stop-color="rgba(110,150,255,0.55)" />
-      <stop offset="100%" stop-color="rgba(80,120,255,0)" />
-    </linearGradient>
-    <linearGradient id="lg3" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%"   stop-color="rgba(60,100,240,0)" />
-      <stop offset="35%"  stop-color="rgba(60,100,240,0.28)" />
-      <stop offset="65%"  stop-color="rgba(90,130,255,0.42)" />
-      <stop offset="100%" stop-color="rgba(60,100,240,0)" />
-    </linearGradient>
-  </defs>
 
-  <!-- LÍNEA 1: curva principal superior -->
-  <path
-    d="M -200,380 C 100,180 300,520 600,300 C 820,140 1000,460 1300,240 C 1500,100 1680,360 1900,200"
-    stroke="url(#lg1)" stroke-width="1.6" fill="none" opacity="0.85"
-    filter="url(#softglow)" />
-
-  <!-- LÍNEA 2: curva media -->
-  <path
-    d="M -200,640 C 150,450 350,780 700,560 C 920,420 1100,700 1400,520 C 1600,400 1760,620 1950,480"
-    stroke="url(#lg2)" stroke-width="1.2" fill="none" opacity="0.60"
-    filter="url(#softglow)" />
-
-  <!-- LÍNEA 3: curva inferior suave -->
-  <path
-    d="M -100,900 C 300,720 550,980 900,820 C 1120,710 1350,920 1650,780 C 1820,700 1940,880 2100,760"
-    stroke="url(#lg3)" stroke-width="1.0" fill="none" opacity="0.45" />
-
-</svg>
 </html>
