@@ -1127,3 +1127,20 @@ function renderizarLiderMuro() {
     );
   }).join("");
 }
+
+function mostrarLogin(){
+    document.getElementById("login-section").style.display = "block";
+    document.getElementById("login-section").scrollIntoView({
+        behavior:"smooth"
+    });
+}
+
+function mostrarLogin() {
+
+    document.getElementById("login-section").style.display = "block";
+
+    document.getElementById("login-section").scrollIntoView({
+        behavior: "smooth"
+    });
+
+}

@@ -1,14 +1,183 @@
 <!DOCTYPE html>
 <html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SADEP - Red de Egresados</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+    <header>
+
+        <div class="logo">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <div>
+                <h2>SADEP</h2>
+                <span>Red de Egresados</span>
+            </div>
+        </div>
+
+        <nav>
+            <a href="#">Inicio</a>
+            <a href="#">Nosotros</a>
+            <a href="#">Beneficios</a>
+            <a href="#">Eventos</a>
+            <a href="#">Contacto</a>
+        </nav>
+
+        <a href="pagina.html" class="btn-login">
+            Iniciar sesión
+        </a>
+
+    </header>
+
+    <section class="hero">
+
+        <div class="hero-text">
+
+            <p class="subtitulo">
+                CONECTAMOS TALENTOS, CREAMOS OPORTUNIDADES
+            </p>
+
+            <h1>
+                Conectamos talentos,
+                <span>creamos oportunidades</span>
+            </h1>
+
+            <p class="descripcion">
+                Un espacio para estudiantes y egresados que impulsa la
+                conexión, la colaboración y el crecimiento profesional.
+            </p>
+
+            <div class="hero-buttons">
+
+             <button class="btn-principal" onclick="mostrarLogin()">
+    Únete a la Red
+</button>
+            
+
+            <div class="mini-info">
+
+                <div>
+                    <i class="fa-solid fa-users"></i>
+                    Red de contactos
+                </div>
+
+                <div>
+                    <i class="fa-solid fa-briefcase"></i>
+                    Oportunidades
+                </div>
+
+                <div>
+                    <i class="fa-solid fa-calendar"></i>
+                    Eventos
+                </div>
+
+                <div>
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    Mentorías
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="hero-image">
+            <img src="img/graduados.png" alt="">
+        </div>
+
+    </section>
+
+    <section class="ofrecemos">
+
+        <h2>¿Qué ofrecemos?</h2>
+
+        <div class="cards">
+
+            <div class="card">
+                <i class="fa-solid fa-users"></i>
+                <h3>Networking</h3>
+                <p>
+                    Conéctate con egresados y amplía tu red profesional.
+                </p>
+            </div>
+
+            <div class="card">
+                <i class="fa-solid fa-briefcase"></i>
+                <h3>Oportunidades</h3>
+                <p>
+                    Accede a ofertas laborales y académicas.
+                </p>
+            </div>
+
+            <div class="card">
+                <i class="fa-solid fa-graduation-cap"></i>
+                <h3>Mentorías</h3>
+                <p>
+                    Recibe orientación de egresados con experiencia.
+                </p>
+            </div>
+
+            <div class="card">
+                <i class="fa-solid fa-calendar-days"></i>
+                <h3>Eventos</h3>
+                <p>
+                    Participa en actividades exclusivas.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="estadisticas">
+
+        <div class="dato">
+            <h2>500+</h2>
+            <p>Egresados conectados</p>
+        </div>
+
+        <div class="dato">
+            <h2>200+</h2>
+            <p>Oportunidades compartidas</p>
+        </div>
+
+        <div class="dato">
+            <h2>50+</h2>
+            <p>Eventos realizados</p>
+        </div>
+
+        <div class="dato">
+            <h2>30+</h2>
+            <p>Alianzas estratégicas</p>
+        </div>
+
+    </section>
+
+</body>
+
+</html>
+
+<html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--
+Todo el código de la plataforma y login
+-->
 <title>Pagina E.E SADEP</title>
 <link rel="icon" href="favicon.jpeg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="pagina.css">
 </head>
 <body>
 
@@ -355,3 +524,15 @@
 
 
 </html>
+
+<section id="login">
+    <h2>Iniciar Sesión</h2>
+
+    <form>
+        <input type="email" placeholder="Correo electrónico" required>
+        <input type="password" placeholder="Contraseña" required>
+        <button type="submit">Ingresar</button>
+    </form>
+</section>
+
+<a href="#login" class="btn-nav-accion">Registro</a>
